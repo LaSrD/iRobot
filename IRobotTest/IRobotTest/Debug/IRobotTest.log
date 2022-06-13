@@ -1,0 +1,28 @@
+﻿  IRobotTest.cpp
+c:\users\11769\source\repos\irobottest\irobottest\include\htmotor.h(97): warning C4251: “HT::HTMotor::StateInfo”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“HT::HTMotor”的客户端使用
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+c:\users\11769\source\repos\irobottest\irobottest\include\irobot_dll.h(135): warning C4251: “ROBOT::IROBOT::m_angle”: struct“ROBOT::ROBOTANGLE”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  c:\users\11769\source\repos\irobottest\irobottest\include\irobot_dll.h(34): note: 参见“ROBOT::ROBOTANGLE”的声明
+c:\users\11769\source\repos\irobottest\irobottest\include\irobot_dll.h(136): warning C4251: “ROBOT::IROBOT::m_endpose”: struct“ROBOT::ENDPOSITION”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  c:\users\11769\source\repos\irobottest\irobottest\include\irobot_dll.h(24): note: 参见“ROBOT::ENDPOSITION”的声明
+c:\users\11769\source\repos\irobottest\irobottest\include\irobot_dll.h(137): warning C4251: “ROBOT::IROBOT::m_state”: class“std::vector<ROBOT::STATE,std::allocator<_Ty>>”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+          with
+          [
+              _Ty=ROBOT::STATE
+          ]
+  c:\users\11769\source\repos\irobottest\irobottest\include\irobot_dll.h(23): note: 参见“std::vector<ROBOT::STATE,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=ROBOT::STATE
+          ]
+    正在创建库 C:\Users\11769\source\repos\IRobotTest\Debug\IRobotTest.lib 和对象 C:\Users\11769\source\repos\IRobotTest\Debug\IRobotTest.exp
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: __thiscall ROBOT::IROBOT::IROBOT(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0IROBOT@ROBOT@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)，该符号在函数 _main 中被引用
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: __thiscall ROBOT::IROBOT::~IROBOT(void)" (??1IROBOT@ROBOT@@QAE@XZ)，该符号在函数 _main 中被引用
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __thiscall ROBOT::IROBOT::Connect(void)" (?Connect@IROBOT@ROBOT@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ)，该符号在函数 _main 中被引用
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: struct ROBOT::ROBOTANGLE & __thiscall ROBOT::IROBOT::Angle(void)" (?Angle@IROBOT@ROBOT@@QAEAAUROBOTANGLE@2@XZ)，该符号在函数 _main 中被引用
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: struct ROBOT::ENDPOSITION & __thiscall ROBOT::IROBOT::Pose(void)" (?Pose@IROBOT@ROBOT@@QAEAAUENDPOSITION@2@XZ)，该符号在函数 _main 中被引用
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: void __thiscall ROBOT::IROBOT::OutputForce(double *)" (?OutputForce@IROBOT@ROBOT@@QAEXPAN@Z)，该符号在函数 _main 中被引用
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: void __thiscall ROBOT::IROBOT::BackToOrigin(void)" (?BackToOrigin@IROBOT@ROBOT@@QAEXXZ)，该符号在函数 _main 中被引用
+IRobotTest.obj : error LNK2019: 无法解析的外部符号 "public: void __thiscall ROBOT::IROBOT::Close(void)" (?Close@IROBOT@ROBOT@@QAEXXZ)，该符号在函数 _main 中被引用
+IRobotDLL.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+C:\Users\11769\source\repos\IRobotTest\Debug\IRobotTest.exe : fatal error LNK1120: 8 个无法解析的外部命令

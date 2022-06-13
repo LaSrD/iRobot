@@ -1,0 +1,71 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly IRobotDLL_forCsharp, Version=1.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class IRobotDLLforCsharp.IROBOT: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    System.String Serial_Num : Public
+    System.String Procotol_Type : Public
+    System.String HW_Type : Public
+    System.String Ctrl_Num : Public
+    Double BaseRangle : Public
+    Double UarmSangle : Public
+    Double LarmSangle : Public
+    Double LarmRangle : Public
+    Double WristSangle : Public
+    Double WristRangle : Public
+    Double px : Public
+    Double py : Public
+    Double pz : Public
+    Double pitch : Public
+    Double yaw : Public
+    Double roll : Public
+    Single[] Temperature : Public
+    Single[] Current : Public
+    Single[] Vlotage : Public
+    System.String[] Motorstate : Public
+  Methods:
+    Info(): PrivateScope, Public, HideBySig
+    isConnect(): PrivateScope, Public, HideBySig
+    isClose(): PrivateScope, Public, HideBySig
+    Connect(): PrivateScope, Public, HideBySig
+    Angle(): PrivateScope, Public, HideBySig
+    Pose(): PrivateScope, Public, HideBySig
+    State(): PrivateScope, Public, HideBySig
+    LockBaseR(): PrivateScope, Public, HideBySig
+    LockUarmS(): PrivateScope, Public, HideBySig
+    LockLarmS(): PrivateScope, Public, HideBySig
+    LockLarmR(): PrivateScope, Public, HideBySig
+    LockWristR(): PrivateScope, Public, HideBySig
+    LockWristS(): PrivateScope, Public, HideBySig
+    UnLockBaseR(): PrivateScope, Public, HideBySig
+    UnLockUarmS(): PrivateScope, Public, HideBySig
+    UnLockLarmS(): PrivateScope, Public, HideBySig
+    UnLockLarmR(): PrivateScope, Public, HideBySig
+    UnLockWristR(): PrivateScope, Public, HideBySig
+    UnLockWristS(): PrivateScope, Public, HideBySig
+    Lock(): PrivateScope, Public, HideBySig
+    UnLock(): PrivateScope, Public, HideBySig
+    BaseRtoPosition(Double, Int16): PrivateScope, Public, HideBySig
+    UarmStoPosition(Double, Int16): PrivateScope, Public, HideBySig
+    LarmStoPosition(Double, Int16): PrivateScope, Public, HideBySig
+    LarmRtoPosition(Double, Int16): PrivateScope, Public, HideBySig
+    WristStoPosition(Double, Int16): PrivateScope, Public, HideBySig
+    WristRtoPosition(Double, Int16): PrivateScope, Public, HideBySig
+    ToAbsoangle(Double*, Int16): PrivateScope, Public, HideBySig
+    ToIncreangle(Double*, Int16): PrivateScope, Public, HideBySig
+    OutputForce(): PrivateScope, Public, HideBySig
+    OutputForce(Double, Double, Double, Double, Double, Double): PrivateScope, Public, HideBySig
+    BackToOrigin(): PrivateScope, Public, HideBySig
+    Close(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

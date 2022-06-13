@@ -1,0 +1,28 @@
+﻿  pch.cpp
+  AssemblyInfo.cpp
+  IRobotDLL_forCsharp.cpp
+c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\htmotor.h(98): warning C4251: “HT::HTMotor::StateInfo”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“HT::HTMotor”的客户端使用
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(144): warning C4251: “ROBOT::IROBOT::m_info”: struct“ROBOT::iRobotInfo”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(24): note: 参见“ROBOT::iRobotInfo”的声明
+c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(145): warning C4251: “ROBOT::IROBOT::m_angle”: struct“ROBOT::ROBOTANGLE”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(43): note: 参见“ROBOT::ROBOTANGLE”的声明
+c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(146): warning C4251: “ROBOT::IROBOT::m_endpose”: struct“ROBOT::ENDPOSITION”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(33): note: 参见“ROBOT::ENDPOSITION”的声明
+c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(147): warning C4251: “ROBOT::IROBOT::m_state”: class“std::vector<ROBOT::STATE,std::allocator<_Ty>>”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+          with
+          [
+              _Ty=ROBOT::STATE
+          ]
+  c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobot_dll.h(23): note: 参见“std::vector<ROBOT::STATE,std::allocator<_Ty>>”的声明
+          with
+          [
+              _Ty=ROBOT::STATE
+          ]
+c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobotdll_forcsharp.cpp(175): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\11769\source\repos\irobotdll_forcsharp\irobotdll_forcsharp\irobotdll_forcsharp.cpp(177): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  AssemblyInfo.obj : 遇到了 MSIL 模块；对 MSIL 禁用了增量链接；正在执行完全链接
+    正在创建库 C:\Users\11769\source\repos\IRobotDLL_forCsharp\x64\Debug\IRobotDLL_forCsharp.lib 和对象 C:\Users\11769\source\repos\IRobotDLL_forCsharp\x64\Debug\IRobotDLL_forCsharp.exp
+  IRobotDLL_forCsharp.vcxproj -> C:\Users\11769\source\repos\IRobotDLL_forCsharp\x64\Debug\IRobotDLL_forCsharp.dll

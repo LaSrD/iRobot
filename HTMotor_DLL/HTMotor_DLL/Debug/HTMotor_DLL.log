@@ -1,0 +1,13 @@
+﻿  HTMotor.cpp
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(2): warning C4603: “HTMOTOR_API_DU”: 未定义宏或在预编译头使用后定义发生改变
+  c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(2): note: 将宏添加到预编译头中，而不是在此处定义
+  c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(5): note: 使用预编译头
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(10): warning C4273: “HT::HTMotor::CRC16”: dll 链接不一致
+  c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.h(43): note: 参见“CRC16”的前一个定义
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(14): warning C4552: ”/“: 未使用表达式结果
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(29): warning C4273: “HT::HTMotor::CRC16”: dll 链接不一致
+  c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.h(44): note: 参见“CRC16”的前一个定义
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(34): warning C4552: ”/“: 未使用表达式结果
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(50): error C2491: “HT::HTMotor::GetHTMotorInfo”: 不允许 dllimport 函数 的定义
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(51): warning C4838: 从“unsigned int”转换到“uint8_t”需要收缩转换
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(69): warning C4333: “>>”: 右移位数过大，数据将丢失

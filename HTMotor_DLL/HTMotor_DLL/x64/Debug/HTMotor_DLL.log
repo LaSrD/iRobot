@@ -1,0 +1,23 @@
+﻿  pch.cpp
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.h(98): warning C4251: “HT::HTMotor::StateInfo”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“HT::HTMotor”的客户端使用
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
+  dllmain.cpp
+  HTMotor.cpp
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(13): warning C4244: “=”: 从“unsigned long”转换到“uint8_t”，可能丢失数据
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(14): warning C4244: “=”: 从“unsigned long”转换到“uint8_t”，可能丢失数据
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(15): warning C4244: “=”: 从“unsigned long”转换到“uint8_t”，可能丢失数据
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(113): warning C4838: 从“float”转换到“uint8_t”需要收缩转换
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(104): warning C4244: “初始化”: 从“float”转换到“uint8_t”，可能丢失数据
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(113): warning C4838: 从“double”转换到“uint8_t”需要收缩转换
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(105): warning C4244: “初始化”: 从“double”转换到“uint8_t”，可能丢失数据
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(332): warning C4838: 从“int”转换到“uint8_t”需要收缩转换
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(650): warning C4838: 从“int”转换到“uint8_t”需要收缩转换
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(664): warning C4244: “初始化”: 从“double”转换到“int16_t”，可能丢失数据
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(675): warning C4838: 从“int”转换到“uint8_t”需要收缩转换
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(731): warning C4838: 从“int”转换到“uint8_t”需要收缩转换
+  正在生成代码...
+c:\users\11769\source\repos\htmotor_dll\htmotor_dll\htmotor.cpp(16): warning C4172: 返回局部变量或临时变量的地址: data
+    正在创建库 C:\Users\11769\source\repos\HTMotor_DLL\x64\Debug\HTMotor_DLL.lib 和对象 C:\Users\11769\source\repos\HTMotor_DLL\x64\Debug\HTMotor_DLL.exp
+serial.lib(win.obj) : warning LNK4099: 未找到 PDB“serial.pdb”(使用“serial.lib(win.obj)”或在“C:\Users\11769\source\repos\HTMotor_DLL\x64\Debug\serial.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+serial.lib(serial.obj) : warning LNK4099: 未找到 PDB“serial.pdb”(使用“serial.lib(serial.obj)”或在“C:\Users\11769\source\repos\HTMotor_DLL\x64\Debug\serial.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  HTMotor_DLL.vcxproj -> C:\Users\11769\source\repos\HTMotor_DLL\x64\Debug\HTMotor_DLL.dll
