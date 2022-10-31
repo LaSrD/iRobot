@@ -178,5 +178,22 @@ namespace IRobotDLLforCsharp {
 		m_wchar[len] = '\0';
 		return m_wchar;
 	}
+	String ^IROBOT::ConnectToHandle(String ^ _portname)
+	{
+		pin_ptr<const wchar_t> portname = PtrToStringChars(_portname);
+		return gcnew String(m_robot->ConnectToHandle(portname));
+	}
+	bool IROBOT::isHandleConnect()
+	{
+		return m_robot->isHandleConnect();
+	}
+	String ^ IROBOT::GetHandleInfo()
+	{
+		return gcnew String(m_robot->GetHandleInfo(1));
+	}
+	void IROBOT::CloseHandle()
+	{
+		m_robot->CloseHandle();
+	}
 }
 

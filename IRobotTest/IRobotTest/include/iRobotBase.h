@@ -35,12 +35,12 @@
 //质量参数（mm，kg）
 #define GLODO		9.801
 
-#define M5			0.292
+#define M5			0.320
 #define M4			0.226
 #define M3			0.269
 #define M2			0.737
 //质心位置
-#define H5			42.96
+#define H5			56.49
 #define H4			5.460
 #define H3			73.70
 #define H2			72.72

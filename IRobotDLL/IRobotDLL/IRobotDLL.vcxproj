@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\11769\source\repos\IRobotDLL\IRobotDLL;C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\IRobotDLL\include;D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\IRobotDLL;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\IRobotDLL\lib;C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\lib;$(LibraryPath)</LibraryPath>
     <SourcePath>C:\Users\11769\source\repos\IRobotDLL\IRobotDLL;C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -90,8 +90,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\11769\source\repos\IRobotDLL\IRobotDLL;C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\IRobotDLL\include;D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\IRobotDLL;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\IRobotDLL\lib;C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\lib;$(LibraryPath)</LibraryPath>
     <SourcePath>C:\Users\11769\source\repos\IRobotDLL\IRobotDLL;C:\Users\11769\source\repos\IRobotDLL\IRobotDLL\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -172,6 +172,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="include\iHANDLE.h" />
     <ClInclude Include="include\iRobotBase.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\IRobot_DLL.h" />
@@ -184,6 +185,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\iHANDLE.cpp" />
     <ClCompile Include="src\IRobot_DLL.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

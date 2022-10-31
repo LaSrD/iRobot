@@ -12,9 +12,11 @@
 #include<string>
 #include<vector>
 #include<algorithm>
-#include <cmath>
+#include<cmath>
+#include <windows.h>
 #include"HTMotor.h"
 #include"iRobotBase.h"
+#include"iHANDLE.h"
 using HT::HTMotor;
 
 namespace ROBOT {
@@ -115,6 +117,7 @@ namespace ROBOT {
 			is_WristSLock = false;
 		}
 		//单关节位置控制
+		// 20221013 : 添加角度限制（）
 		void BaseRtoPosition(double, int16_t speed = 0);
 		void UarmStoPosition(double, int16_t speed = 0);
 		void LarmStoPosition(double, int16_t speed = 0);
@@ -132,19 +135,31 @@ namespace ROBOT {
 		void OutputForce(double, double, double, double _mx = 0, double _my = 0, double _mz = 0);
 		void OutputForce();
 		void BackToOrigin();
-
 		void Close();
+
+		// 按键代码
+		std::string ConnectToHandle(std::string _portname);
+		wchar_t * ConnectToHandle(const wchar_t * _portname);
+		bool isHandleConnect();
+		std::string GetHandleInfo();
+		wchar_t * GetHandleInfo(int i);
+		void CloseHandle();
+		
 #pragma endregion
 
 	private:
 		IROBOT();
+
+
 		IROBOT & operator=(const IROBOT &);
 #pragma region 私有成员
-		serial::Serial* m_serial;		// 串口
+		serial::Serial* m_serial;		// 电机通信串口
 		iRobotInfo m_info;				//设备信息
-		ROBOTANGLE m_angle;				// 关节角
+		ROBOTANGLE m_angle;				// 关节角 
 		ENDPOSITION m_endpose;			// 末端位姿
 		StateVector m_state;			// 电机状态
+
+
 		HTMotor *MotorBaseR;			// 关节6
 		HTMotor *MotorUarmS;			// 关节5
 		HTMotor *MotorLarmS;			// 关节4
@@ -152,8 +167,11 @@ namespace ROBOT {
 		HTMotor *MotorWristS;			// 关节2
 		HTMotor *MotorWristR;			// 关节1
 
+		iHANDLE * m_handle;				// 按键手柄
+
 		bool is_connect;	
 		bool is_close;
+		bool is_handleconnect;
 
 		//关节锁定状态
 		bool is_BaseLock;

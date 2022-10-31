@@ -21,6 +21,7 @@ ROBOT::IROBOT::IROBOT(const wchar_t * portname) : IROBOT()
 ROBOT::IROBOT::IROBOT(): 
 	m_info(SERIALNUM, PROCOTOL, HWTYPE, CTRLNUM),
 	is_connect(false),
+	is_handleconnect(false),
 	is_close(true),
 	is_BaseLock(false),
 	is_UarmSLock(false),
@@ -55,6 +56,17 @@ ROBOT::IROBOT::~IROBOT()
 		delete MotorWristS;
 	if (MotorWristR)
 		delete MotorWristR;
+	if (m_handle)
+		delete m_handle;
+
+	m_serial = nullptr;
+	MotorBaseR = nullptr;
+	MotorUarmS = nullptr;
+	MotorLarmS = nullptr;
+	MotorLarmR = nullptr;
+	MotorWristS = nullptr;
+	MotorWristR = nullptr;
+	m_handle = nullptr;
 }
 //
 // 返回设备的信息
@@ -64,7 +76,7 @@ ROBOT::iRobotInfo  ROBOT::IROBOT::GetInfo()
 	return this->m_info;
 }
 //
-//	设备连接
+//	
 //	返回: empty | 错误信息
 //
 std::string ROBOT::IROBOT::Connect()
@@ -154,7 +166,8 @@ void ROBOT::IROBOT::WristRtoPosition(double _angle,int16_t _speed)
 //
 void ROBOT::IROBOT::ToAbsoangle(double * _angle, int16_t speed )
 {
-	// 关节角映射到电机转角
+	// 关节角映射到电机转角。
+	// 20221013 待添加关节角映射到电机转角
 
 	BaseRtoPosition(_angle[5],speed);
 	UarmStoPosition(_angle[4], speed);
@@ -310,6 +323,45 @@ void ROBOT::IROBOT::Close()
 	MotorWristS->Close(*m_serial);
 	MotorWristR->Close(*m_serial);
 	this->is_close = true;
+}
+std::string ROBOT::IROBOT::ConnectToHandle(std::string _portname)
+{
+	this->m_handle = new iHANDLE(_portname);
+	std::string errmsg = this->m_handle->Connect();
+	if (errmsg.empty())
+		is_handleconnect = true;
+	return errmsg;
+}
+wchar_t * ROBOT::IROBOT::ConnectToHandle(const wchar_t * _portname)
+{
+	std::string temp;
+	Wchar_tToString(temp, _portname);
+	std::string errmsg = ConnectToHandle(temp);
+	wchar_t * ptr = char2wchar(errmsg.c_str());
+	if (ptr == nullptr)
+		this->is_handleconnect = true;
+	return ptr;
+}
+std::string ROBOT::IROBOT::GetHandleInfo()
+{
+	if (!is_handleconnect)
+		return std::string();
+	return m_handle->Getinfo();
+}
+wchar_t * ROBOT::IROBOT::GetHandleInfo(int i)
+{
+	if (!is_handleconnect)
+		return nullptr;
+	return char2wchar(m_handle->Getinfo().c_str());
+}
+bool ROBOT::IROBOT::isHandleConnect()
+{
+	return this->m_handle->isConnect();
+}
+void ROBOT::IROBOT::CloseHandle()
+{
+	if (isHandleConnect())
+		this->m_handle->Close();
 }
 #pragma region private
 void ROBOT::IROBOT::GetAngle()

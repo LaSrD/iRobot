@@ -11,64 +11,20 @@ using namespace std;
 int main()
 {
 	ROBOT::IROBOT test2("COM6");
-
-	double time = 0;
-	double counts = 0;
-	LARGE_INTEGER nFreq;
-	LARGE_INTEGER nBeginTime;
-	LARGE_INTEGER nEndTime;
-
-
-	double angle[6] = {
-	0,90,120,90,200,0 };
-	double angl2[6] = {
-0,90,0,0,0,0 };
-
-	double force[6] = { 0,1, 0, 0, 0, 0 };
 	char str;
 	cin >> str;
-	if (str == 'v') {
-		string msg = test2.Connect();
+	if (str == 'o') {
+		string msg = test2.ConnectToHandle("COM11");  // 连接至手柄
 		if (!msg.empty())
 			cout << msg;
 	}
-	cin >> str;
-	if (test2.isConnect()) {
-		if (str == 'a')
-			test2.LockBaseR();
-		if (str == 'c')
-			test2.BackToOrigin();
-		if (str == 'k')
-			test2.Close();
-	}
+	string info;
 	while (true)
 	{
-		QueryPerformanceFrequency(&nFreq);
-		QueryPerformanceCounter(&nBeginTime);//开始计时 
-		ROBOT::ROBOTANGLE _angle = test2.Angle();
-		ROBOT::ENDPOSITION _pose = test2.Pose();
-
-		test2.OutputForce(force);
-		/*cout << _angle.BaseR << "\t";
-		cout << _angle.UarmS << "\t" ;
-		cout << _angle.LarmS << "\t" ;
-		cout << _angle.LarmR << "\t" ;
-		cout << _angle.WristS << "\t";
-		cout << _angle.WristR << "\n" << ends;*/
-		/*cout << _pose.px << "\t";
-		cout << _pose.pz << "\t";
-		cout << _pose.py << "\n";*/
-		//cout << test.Angle().UarmS << "\t" << ends;;
-		//cout << test.Angle().LarmS << "\t" << ends;;0
-		//cout << test.Angle().LarmR << "\t" << ends;;
-		//cout << test.Angle().WristR << "\t" << ends;;
-		//cout << test.Angle().WristS << "\n" << ends;;
-		 QueryPerformanceCounter(&nEndTime);//停止计时  
-		 time = (double)(nEndTime.QuadPart - nBeginTime.QuadPart) / (double)nFreq.QuadPart;//计算程序执行时间单位为s  
-		cout << "程序执行时间：" << time * 1000 << "ms" << endl;
-		//cin >> str;
-		//cout << test.State()[0].state << "\n";
-		//system("cls");
+		if (test2.isHandleConnect())
+			cout << (info = test2.GetHandleInfo());
+		if (info == "10000")
+			test2.CloseHandle();
 	}
 }
 

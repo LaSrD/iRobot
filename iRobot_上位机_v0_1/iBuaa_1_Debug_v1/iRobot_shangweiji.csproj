@@ -73,9 +73,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IRobotDLL_forCsharp, Version=1.0.8180.25624, Culture=neutral, processorArchitecture=AMD64">
+    <Reference Include="IRobotDLL_forCsharp, Version=1.0.8327.29816, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\IRobotDLL_forCsharp.dll</HintPath>
+      <HintPath>..\..\IRobotDLL_forCsharp\x64\Debug\IRobotDLL_forCsharp.dll</HintPath>
     </Reference>
     <Reference Include="MVSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

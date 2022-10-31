@@ -34,19 +34,21 @@ namespace iBuaa_1_Debug_v1
         static protected pfnCameraGrabberFrameCallback m_FrameCallback;
 
         /// <summary>
-        /// CAN设备
+        /// 
         /// </summary>
         public static IROBOT m_iRobot;
-        public static PortControl portControl = new PortControl();
+        //public static PortControl portControl = new PortControl();
         private Thread TranmitThread2;      //控制指令发送线程
         private Thread unitySeverSendThread;//虚拟环境数据交换
         private Thread PortReadThread;      //串口接收线程
         private Thread updatedata;          //控件信息更新
-        private string potrinfo = string.Empty;
-        private bool SwitchFlag = true;         // 位置环电流环切换标注,初值为真（电流环）
+        private string Handleinfo = string.Empty;
+        private bool isBaseRLock = false;
+        private bool isLock = false;
         private bool SceneChangeFlag = false;   // 演示场景切换标识
         private bool SceneFlag = true;          // 场景标识， true 为 机械臂演示场景 、 false 为 力反馈演示场景
         public static bool deviceEnable = false; //
+        private Object handleinfoLock = new Object();  // 锁
         /// <summary>
         /// TCP 服务器
         /// </summary>
@@ -94,6 +96,7 @@ namespace iBuaa_1_Debug_v1
                 foreach(string s in str)
                 {
                     comboport.Items.Add(s);
+                    cbbox_handle.Items.Add(s); 
                 }
             }
         }
@@ -112,7 +115,6 @@ namespace iBuaa_1_Debug_v1
         private void 位置控制ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wavepan.Visible = false;
-            SceneChangeFlag = true;
             menu_panel.Controls.Clear();
             positionControl.TopLevel = false;
             positionControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -164,11 +166,8 @@ namespace iBuaa_1_Debug_v1
             updatedata.IsBackground = true;
             updatedata.Start();
 
-           // portconnect();
+            // portconnect();
 
-            //PortReadThread = new Thread(new ThreadStart(PortReadThreadint));
-            //PortReadThread.IsBackground = true;
-            //PortReadThread.Start();
 
             //开启与unity通讯的服务器
             server.SocketServer(65532);
@@ -187,31 +186,35 @@ namespace iBuaa_1_Debug_v1
                 m_iRobot.State();
                 m_iRobot.Angle();
                 m_iRobot.Pose();
-                //获取关节 
-                //if (potrinfo == "100" || potrinfo == "010" || potrinfo == "001")
-                //{
-                //    string temp = txtInfo.Text;
-                //    DeviceStatic.Log(txtInfo,string.Format("{0}\r\n{1}", temp, potrinfo));
-                //    potrinfo = string.Empty; // 清除串口读数
-                //    SwitchFlag = !SwitchFlag;          // 切换标识状态
-                //   // buaaDevice.MotorPidSwitch(SwitchFlag);
-                //}
-                //if (SwitchFlag) //按下为电流环重力补偿20220317 暂时不改 , 参数为机械臂末端的三维力 |
-                //{
-                //   // m_iRobot.UnLock();
-                //}
-                //else  //再按一下 且  位置未发送，发送当前位置（只发送一帧），位置环锁定 待调
-                //{
-                //    //m_iRobot.Lock();
-                //}
+                
                 double force_x = unity_Force[0] + ForceRender.Winform_force[0];
                 double force_y = unity_Force[1] + ForceRender.Winform_force[1];
                 double force_z = unity_Force[2] + ForceRender.Winform_force[2];
+
+                if (Handleinfo != string.Empty)
+                {
+                    lock(handleinfoLock){
+                        isLock = !isLock;
+                        Handleinfo = string.Empty;
+                    }
+                    
+                }
+                //if (isLock)
+                //{ 
+                //    m_iRobot.Lock();
+                //}
+                //else
+                //{
+                //    m_iRobot.UnLock();
+                //}
                 m_iRobot.OutputForce(force_x, force_y, force_z,0,0,0);
             }
         }
         /// <summary>
         /// 接收unity回传数据 并解码
+        /// 
+        /// 
+        /// 
         /// </summary>
         /// <returns></returns>
         private void forcedecode()
@@ -286,11 +289,19 @@ namespace iBuaa_1_Debug_v1
         /// </summary>
         private void PortReadThreadint()
         {
-            while(portControl.connectFlag)
+            while(m_iRobot.isHandleConnect())
             {
-                Thread.Sleep(200);
-                portControl.ReadPort();
-                potrinfo = portControl.ButtonInf;
+                Handleinfo = m_iRobot.GetHandleInfo();
+                if (txtInfo.InvokeRequired)
+                {
+                    txtInfo.Invoke(new Action<string>(s =>
+                    {
+                        string temp = string.Empty;
+                        if (Handleinfo != "10000")
+                            temp = "按键按下";
+                        txtInfo.Text = temp;
+                    }), Handleinfo);
+                }
             }
         }
         private void Updatedata()
@@ -312,7 +323,7 @@ namespace iBuaa_1_Debug_v1
                 DeviceStatic.Log(txttemp6, iBuaaDebug.m_iRobot.Temperature[0]);
                 DeviceStatic.Wanning((int)iBuaaDebug.m_iRobot.Temperature[0], tempwanning6);
 
-                if (SwitchFlag)
+                if (!isLock)
                 {
                     DeviceStatic.Log(label6, "操作状态：转矩随动");
                     DeviceStatic.Log(labbut1, "Operation");
@@ -372,12 +383,12 @@ namespace iBuaa_1_Debug_v1
 
         private void button_zhongli_Click(object sender, EventArgs e)
         {
-            embeddedExeTool.LoadEXE(unitypanel, "D:\\Study\\研究生毕业设计\\设备调试软件\\unity-part\\ibuaa-1_Model\\inbuaa_1_debug_Master_v04\\iBuaa_1_Debug_v0.1.exe");
+            embeddedExeTool.LoadEXE(unitypanel, "D:\\Study\\VS工程\\source\\repos\\iRobot\\iRobot\\iRobot_上位机_v0_1\\iBuaa_1_Debug_v1\\Resources\\exe\\iRobot_ar.exe");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            embeddedExeTool.KillEXE("iBuaa_1_Debug_v0.1");
+            embeddedExeTool.KillEXE("iRobot_ar");
         }
 
         private void txttemp5_TextChanged(object sender, EventArgs e)
@@ -405,38 +416,38 @@ namespace iBuaa_1_Debug_v1
 
         }
 
-        private void portconnect()
-        {
-            string portname = comboport.Text;
-            PORTSTATE pORTSTATE = PORTSTATE.CONNECT;
-            try
-            {
-                pORTSTATE = portControl.Portconnect(portname);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+        //private void portconnect()
+        //{
+        //    string portname = comboport.Text;
+        //    PORTSTATE pORTSTATE = PORTSTATE.CONNECT;
+        //    try
+        //    {
+        //        pORTSTATE = portControl.Portconnect(portname);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
 
-            if(pORTSTATE == PORTSTATE.CONNECT)
-            {
-                labhandle.ForeColor = Color.Green;
-                labhandle2.Text = "HandleConnect";
-                //string temp = txtInfo.Text;
-                //txtInfo.Text = string.Format("{0}\r\t{1}", temp, "手柄连接成功");
-            }
-            else if (pORTSTATE == PORTSTATE.DISCONNECT)
-            {
-                labhandle.ForeColor = Color.Red;
-                labhandle2.Text = "HandleDisConnect";
-            }
+        //    if(pORTSTATE == PORTSTATE.CONNECT)
+        //    {
+        //        labhandle.ForeColor = Color.Green;
+        //        labhandle2.Text = "HandleConnect";
+        //        //string temp = txtInfo.Text;
+        //        //txtInfo.Text = string.Format("{0}\r\t{1}", temp, "手柄连接成功");
+        //    }
+        //    else if (pORTSTATE == PORTSTATE.DISCONNECT)
+        //    {
+        //        labhandle.ForeColor = Color.Red;
+        //        labhandle2.Text = "HandleDisConnect";
+        //    }
 
-        }
+        //}
 
 
         private void 力反馈演示ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SceneChangeFlag = true;
+
             wavepan.Visible = false;
             menu_panel.Controls.Clear();
             forceRender.TopLevel = false;
@@ -551,5 +562,29 @@ namespace iBuaa_1_Debug_v1
             });
         }
         #endregion
+
+        private void updateList_Click(object sender, EventArgs e)
+        {
+            if (cbbox_handle.Text == String.Empty)
+                return;
+            string msg = m_iRobot.ConnectToHandle(cbbox_handle.Text);
+            if (msg == String.Empty)
+            {
+                labhandle.ForeColor = Color.Green;
+                labhandle2.Text = "Connected";
+                txtInfo.Text = "手柄连接成功";
+
+
+                PortReadThread = new Thread(new ThreadStart(PortReadThreadint));
+                PortReadThread.IsBackground = true;
+                PortReadThread.Start();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            byte[] data = { 0xff };
+            server.ServerSendData(data);
+        }
     }
 }

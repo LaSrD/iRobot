@@ -68,6 +68,11 @@ namespace IRobotDLLforCsharp {
 		void OutputForce();
 		void BackToOrigin();
 		void Close();
+		// 按键
+		String ^ConnectToHandle(String ^ _portname);
+		bool isHandleConnect();
+		String ^ GetHandleInfo();
+		void CloseHandle();
 	private:
 		ROBOT::IROBOT * m_robot;
 		wchar_t * char2wchar(const char* cchar);

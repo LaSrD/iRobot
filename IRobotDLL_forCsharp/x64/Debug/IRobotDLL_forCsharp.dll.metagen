@@ -68,4 +68,8 @@ Class IRobotDLLforCsharp.IROBOT: AutoLayout, AnsiClass, Class, Public, BeforeFie
     OutputForce(Double, Double, Double, Double, Double, Double): PrivateScope, Public, HideBySig
     BackToOrigin(): PrivateScope, Public, HideBySig
     Close(): PrivateScope, Public, HideBySig
+    ConnectToHandle(String): PrivateScope, Public, HideBySig
+    isHandleConnect(): PrivateScope, Public, HideBySig
+    GetHandleInfo(): PrivateScope, Public, HideBySig
+    CloseHandle(): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

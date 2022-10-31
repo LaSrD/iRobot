@@ -30,8 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.zz = new System.Windows.Forms.GroupBox();
+            this.cbbox_handle = new System.Windows.Forms.ComboBox();
             this.comboport = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tempwanning6 = new System.Windows.Forms.Label();
+            this.txttemp6 = new System.Windows.Forms.TextBox();
             this.labbut1 = new System.Windows.Forms.Label();
             this.labbut2 = new System.Windows.Forms.Label();
             this.labbut3 = new System.Windows.Forms.Label();
@@ -85,8 +88,7 @@
             this.相机设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.停止ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer_camera = new System.Windows.Forms.Timer(this.components);
-            this.tempwanning6 = new System.Windows.Forms.Label();
-            this.txttemp6 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.zz.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -99,6 +101,7 @@
             // 
             // zz
             // 
+            this.zz.Controls.Add(this.cbbox_handle);
             this.zz.Controls.Add(this.comboport);
             this.zz.Controls.Add(this.groupBox1);
             this.zz.Controls.Add(this.groupBox2);
@@ -113,6 +116,14 @@
             this.zz.TabIndex = 3;
             this.zz.TabStop = false;
             this.zz.Text = "设备列表";
+            // 
+            // cbbox_handle
+            // 
+            this.cbbox_handle.FormattingEnabled = true;
+            this.cbbox_handle.Location = new System.Drawing.Point(128, 22);
+            this.cbbox_handle.Name = "cbbox_handle";
+            this.cbbox_handle.Size = new System.Drawing.Size(147, 20);
+            this.cbbox_handle.TabIndex = 9;
             // 
             // comboport
             // 
@@ -146,6 +157,24 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设备状态";
+            // 
+            // tempwanning6
+            // 
+            this.tempwanning6.AutoSize = true;
+            this.tempwanning6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.tempwanning6.Location = new System.Drawing.Point(244, 195);
+            this.tempwanning6.Name = "tempwanning6";
+            this.tempwanning6.Size = new System.Drawing.Size(17, 12);
+            this.tempwanning6.TabIndex = 38;
+            this.tempwanning6.Text = "●";
+            // 
+            // txttemp6
+            // 
+            this.txttemp6.Location = new System.Drawing.Point(193, 192);
+            this.txttemp6.Name = "txttemp6";
+            this.txttemp6.ReadOnly = true;
+            this.txttemp6.Size = new System.Drawing.Size(45, 21);
+            this.txttemp6.TabIndex = 37;
             // 
             // labbut1
             // 
@@ -412,19 +441,20 @@
             // 
             // updateList
             // 
-            this.updateList.Location = new System.Drawing.Point(128, 17);
+            this.updateList.Location = new System.Drawing.Point(128, 48);
             this.updateList.Name = "updateList";
-            this.updateList.Size = new System.Drawing.Size(147, 44);
+            this.updateList.Size = new System.Drawing.Size(147, 41);
             this.updateList.TabIndex = 1;
-            this.updateList.Text = "更新列表";
+            this.updateList.Text = "连接手柄";
             this.updateList.UseVisualStyleBackColor = true;
+            this.updateList.Click += new System.EventHandler(this.updateList_Click);
             // 
             // txtInfo
             // 
-            this.txtInfo.Location = new System.Drawing.Point(128, 67);
+            this.txtInfo.Location = new System.Drawing.Point(128, 95);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(147, 116);
+            this.txtInfo.Size = new System.Drawing.Size(147, 88);
             this.txtInfo.TabIndex = 0;
             // 
             // menu_panel
@@ -442,6 +472,7 @@
             this.groupBox3.Controls.Add(this.button_zhongli);
             this.groupBox3.Controls.Add(this.unitypanel);
             this.groupBox3.Controls.Add(this.menuStrip1);
+            this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Location = new System.Drawing.Point(299, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(827, 606);
@@ -453,13 +484,13 @@
             // 
             this.wavepan.Location = new System.Drawing.Point(3, 45);
             this.wavepan.Name = "wavepan";
-            this.wavepan.Size = new System.Drawing.Size(824, 555);
+            this.wavepan.Size = new System.Drawing.Size(824, 561);
             this.wavepan.TabIndex = 0;
             this.wavepan.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(488, 525);
+            this.button1.Location = new System.Drawing.Point(617, 524);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 37);
             this.button1.TabIndex = 21;
@@ -650,23 +681,15 @@
             this.停止ToolStripMenuItem.Text = "停止";
             this.停止ToolStripMenuItem.Click += new System.EventHandler(this.停止ToolStripMenuItem_Click);
             // 
-            // tempwanning6
+            // button3
             // 
-            this.tempwanning6.AutoSize = true;
-            this.tempwanning6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.tempwanning6.Location = new System.Drawing.Point(244, 195);
-            this.tempwanning6.Name = "tempwanning6";
-            this.tempwanning6.Size = new System.Drawing.Size(17, 12);
-            this.tempwanning6.TabIndex = 38;
-            this.tempwanning6.Text = "●";
-            // 
-            // txttemp6
-            // 
-            this.txttemp6.Location = new System.Drawing.Point(193, 192);
-            this.txttemp6.Name = "txttemp6";
-            this.txttemp6.ReadOnly = true;
-            this.txttemp6.Size = new System.Drawing.Size(45, 21);
-            this.txttemp6.TabIndex = 37;
+            this.button3.Location = new System.Drawing.Point(488, 524);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 37);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "虚实";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // iBuaaDebug
             // 
@@ -770,6 +793,8 @@
         private System.Windows.Forms.Timer timer_camera;
         private System.Windows.Forms.Label tempwanning6;
         private System.Windows.Forms.TextBox txttemp6;
+        private System.Windows.Forms.ComboBox cbbox_handle;
+        private System.Windows.Forms.Button button3;
     }
 }
 
