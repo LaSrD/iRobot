@@ -76,7 +76,7 @@ ROBOT::iRobotInfo  ROBOT::IROBOT::GetInfo()
 	return this->m_info;
 }
 //
-//	
+//	g
 //	·µ»Ø: empty | ´íÎóÐÅÏ¢
 //
 std::string ROBOT::IROBOT::Connect()
