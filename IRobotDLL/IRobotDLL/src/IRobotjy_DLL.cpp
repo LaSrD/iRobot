@@ -1,5 +1,5 @@
 #include"pch.h"
-#include"IRobot_DLL.h"
+#include"IRobotjy_DLL.h"
 
 
 //
@@ -122,7 +122,7 @@ ROBOT::ENDPOSITION & ROBOT::IROBOT::Pose()
 	return this->m_endpose;
 }
 //
-//	返回手控器电机的状态
+//	
 //
 ROBOT::StateVector & ROBOT::IROBOT::State()
 {
