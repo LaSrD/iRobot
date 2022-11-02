@@ -19,33 +19,33 @@ d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\include\irobot_
               _Ty=ROBOT::STATE
           ]
   iHANDLE.cpp
-  IRobot_DLL.cpp
+  IRobotjy_DLL.cpp
 d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\include\htmotor.h(98): warning C4251: “HT::HTMotor::StateInfo”: class“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”需要有 dll 接口由 class“HT::HTMotor”的客户端使用
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstring(4373): note: 参见“std::basic_string<char,std::char_traits<char>,std::allocator<char>>”的声明
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(157): warning C4251: “ROBOT::IROBOT::m_info”: struct“ROBOT::iRobotInfo”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
-  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(26): note: 参见“ROBOT::iRobotInfo”的声明
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(158): warning C4251: “ROBOT::IROBOT::m_angle”: struct“ROBOT::ROBOTANGLE”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
-  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(45): note: 参见“ROBOT::ROBOTANGLE”的声明
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(159): warning C4251: “ROBOT::IROBOT::m_endpose”: struct“ROBOT::ENDPOSITION”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
-  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(35): note: 参见“ROBOT::ENDPOSITION”的声明
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(160): warning C4251: “ROBOT::IROBOT::m_state”: class“std::vector<ROBOT::STATE,std::allocator<_Ty>>”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(157): warning C4251: “ROBOT::IROBOT::m_info”: struct“ROBOT::iRobotInfo”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(26): note: 参见“ROBOT::iRobotInfo”的声明
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(158): warning C4251: “ROBOT::IROBOT::m_angle”: struct“ROBOT::ROBOTANGLE”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(45): note: 参见“ROBOT::ROBOTANGLE”的声明
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(159): warning C4251: “ROBOT::IROBOT::m_endpose”: struct“ROBOT::ENDPOSITION”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
+  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(35): note: 参见“ROBOT::ENDPOSITION”的声明
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(160): warning C4251: “ROBOT::IROBOT::m_state”: class“std::vector<ROBOT::STATE,std::allocator<_Ty>>”需要有 dll 接口由 class“ROBOT::IROBOT”的客户端使用
           with
           [
               _Ty=ROBOT::STATE
           ]
-  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.h(25): note: 参见“std::vector<ROBOT::STATE,std::allocator<_Ty>>”的声明
+  d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.h(25): note: 参见“std::vector<ROBOT::STATE,std::allocator<_Ty>>”的声明
           with
           [
               _Ty=ROBOT::STATE
           ]
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(264): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(269): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(274): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(279): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(284): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(289): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(441): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(443): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(264): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(269): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(274): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(279): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(284): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(289): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(441): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobotjy_dll.cpp(443): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  IRobot_DLL.cpp
+c1xx : fatal error C1083: 无法打开源文件: “src\IRobot_DLL.cpp”: No such file or directory
   正在生成代码...
-    正在创建库 D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\x64\Debug\IRobotDLL.lib 和对象 D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\x64\Debug\IRobotDLL.exp
-  IRobotDLL.vcxproj -> D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\x64\Debug\IRobotDLL.dll
