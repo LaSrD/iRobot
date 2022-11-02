@@ -175,6 +175,7 @@
     <ClInclude Include="include\iHANDLE.h" />
     <ClInclude Include="include\iRobotBase.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="src\IRobotjy_DLL.h" />
     <ClInclude Include="src\IRobot_DLL.h" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\iHANDLE.cpp" />
+    <ClCompile Include="src\IRobotjy_DLL.cpp" />
     <ClCompile Include="src\IRobot_DLL.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

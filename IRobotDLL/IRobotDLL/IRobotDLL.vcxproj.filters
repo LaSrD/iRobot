@@ -30,6 +30,9 @@
     <ClInclude Include="include\iHANDLE.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\IRobotjy_DLL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -42,6 +45,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\iHANDLE.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IRobotjy_DLL.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
