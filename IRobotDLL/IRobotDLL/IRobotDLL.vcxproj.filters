@@ -21,13 +21,13 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\IRobot_DLL.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="include\iRobotBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\iHANDLE.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IRobot_DLL.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,10 +38,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\IRobot_DLL.cpp">
+    <ClCompile Include="src\iHANDLE.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\iHANDLE.cpp">
+    <ClCompile Include="src\IRobot_DLL.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
