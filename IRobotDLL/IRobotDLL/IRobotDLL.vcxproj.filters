@@ -41,9 +41,6 @@
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\IRobot_DLL.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\iHANDLE.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
