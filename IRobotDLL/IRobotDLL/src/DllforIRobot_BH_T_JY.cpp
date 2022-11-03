@@ -1,5 +1,5 @@
 #include"pch.h"
-#include"IRobotjy_DLL.h"
+#include"DllforIRobot_BH_T_JY.h"
 
 
 //

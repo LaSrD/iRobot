@@ -27,7 +27,7 @@
     <ClInclude Include="include\iHANDLE.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\IRobotjy_DLL.h">
+    <ClInclude Include="src\DllforIRobot_BH_T_JY.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="src\iHANDLE.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\IRobotjy_DLL.cpp">
+    <ClCompile Include="src\DllforIRobot_BH_T_JY.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
