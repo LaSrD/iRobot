@@ -35,7 +35,7 @@ ROBOT::IROBOT::IROBOT():
 {
 	this->MotorBaseR = new HTMotor(ID_BASER, DM_R_6015);
 	this->MotorUarmS = new HTMotor(ID_UARMS, DM_R_6015);
-	this->MotorLarmS = new HTMotor(ID_LARMS, DM_R_6015);
+	//this->MotorLarmS = new HTMotor(ID_LARMS, DM_R_6015);  Jy版本的没有小臂摆动电机，20221103改
 	this->MotorLarmR = new HTMotor(ID_LARMR, DM_R_4315);
 	this->MotorWristS = new HTMotor(ID_WRISTS, DM_R_4315);
 	this->MotorWristR = new HTMotor(ID_WRISTR, DM_R_4315);
@@ -48,8 +48,8 @@ ROBOT::IROBOT::~IROBOT()
 		delete MotorBaseR;
 	if (MotorUarmS)
 		delete MotorUarmS;
-	if (MotorLarmS)
-		delete MotorLarmS;
+	// if (MotorLarmS)			
+		// delete MotorLarmS;  //Jy版本的没有小臂摆动电机，20221103改
 	if (MotorLarmR)
 		delete MotorLarmR;
 	if (MotorWristS)
@@ -62,7 +62,7 @@ ROBOT::IROBOT::~IROBOT()
 	m_serial = nullptr;
 	MotorBaseR = nullptr;
 	MotorUarmS = nullptr;
-	MotorLarmS = nullptr;
+	// MotorLarmS = nullptr; //Jy版本的没有小臂摆动电机，20221103改
 	MotorLarmR = nullptr;
 	MotorWristS = nullptr;
 	MotorWristR = nullptr;
@@ -129,7 +129,7 @@ ROBOT::StateVector & ROBOT::IROBOT::State()
 	this->m_state[0] = GetState(*MotorWristS);
 	this->m_state[1] = GetState(*MotorWristR);
 	this->m_state[2] = GetState(*MotorLarmR);
-	this->m_state[3] = GetState(*MotorLarmS);
+	// this->m_state[3] = GetState(*MotorLarmS); //Jy版本的没有小臂摆动电机，20221103改
 	this->m_state[4] = GetState(*MotorUarmS);
 	this->m_state[5] = GetState(*MotorBaseR);
 	return this->m_state;
@@ -147,7 +147,7 @@ void ROBOT::IROBOT::UarmStoPosition(double _angle, int16_t _speed)
 }
 void ROBOT::IROBOT::LarmStoPosition(double _angle,int16_t _speed)
 {
-	base_toangle(_angle, _speed, *MotorLarmS);
+	// base_toangle(_angle, _speed, *MotorLarmS); //Jy版本的没有小臂摆动电机，20221103改
 }
 void ROBOT::IROBOT::LarmRtoPosition(double _angle,int16_t _speed)
 {
@@ -189,7 +189,7 @@ void ROBOT::IROBOT::ToIncreangle(double * _angle, int16_t speed)
 {
 	base_increangle(_angle[5], speed, *MotorBaseR);
 	base_increangle(_angle[4], speed, *MotorUarmS);
-	base_increangle(_angle[3], speed, *MotorLarmS);
+	// base_increangle(_angle[3], speed, *MotorLarmS);
 	base_increangle(_angle[2], speed, *MotorLarmR);
 	base_increangle(_angle[1], speed, *MotorWristS);
 	base_increangle(_angle[0], speed, *MotorWristR);
@@ -198,7 +198,7 @@ void ROBOT::IROBOT::ToIncreangle(std::vector<double>_angle, int16_t speed)
 {
 	base_increangle(_angle[5], speed, *MotorBaseR);
 	base_increangle(_angle[4], speed, *MotorUarmS);
-	base_increangle(_angle[3], speed, *MotorLarmS);
+	// base_increangle(_angle[3], speed, *MotorLarmS);
 	base_increangle(_angle[2], speed, *MotorLarmR);
 	base_increangle(_angle[1], speed, *MotorWristS);
 	base_increangle(_angle[0], speed, *MotorWristR);
@@ -270,11 +270,11 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	else
 		this->MotorUarmS->IncreControl(*m_serial, 0, 10);
 
-	if(!this->is_LarmSLock)
-		this->MotorLarmS->TorqueControl(*m_serial, Torque_3);
-	else
-		this->MotorLarmS->IncreControl(*m_serial, 0, 10);
-
+	//if(!this->is_LarmSLock)
+	//	this->MotorLarmS->TorqueControl(*m_serial, Torque_3);
+	//else
+	//	this->MotorLarmS->IncreControl(*m_serial, 0, 10); //Jy版本的没有小臂摆动电机，20221103改
+	 
 	if(!this->is_LarmRLock)
 		this->MotorLarmR->TorqueControl(*m_serial, Torque_4);
 	else
@@ -318,7 +318,7 @@ void ROBOT::IROBOT::Close()
 		return;
 	MotorBaseR->Close(*m_serial);
 	MotorUarmS->Close(*m_serial);
-	MotorLarmS->Close(*m_serial);
+	// MotorLarmS->Close(*m_serial); //Jy版本的没有小臂摆动电机，20221103改
 	MotorLarmR->Close(*m_serial);
 	MotorWristS->Close(*m_serial);
 	MotorWristR->Close(*m_serial);
@@ -371,7 +371,7 @@ void ROBOT::IROBOT::GetAngle()
 
 	this->m_angle.BaseR = MotorBaseR->angle(*m_serial);
 	this->m_angle.UarmS = - 90.0 + ((0 - MotorUarmS->angle(*m_serial)) / UPARMRATIO);
-	this->m_angle.LarmS = 90.0 - MotorLarmS->angle(*m_serial);
+ 	 // this->m_angle.LarmS = 90.0 - MotorLarmS->angle(*m_serial);
 	this->m_angle.LarmR = MotorLarmR->angle(*m_serial);
 	this->m_angle.WristS = - MotorWristS->angle(*m_serial);
 	this->m_angle.WristR = MotorWristR->angle(*m_serial);

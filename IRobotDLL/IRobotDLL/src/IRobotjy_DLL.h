@@ -162,7 +162,7 @@ namespace ROBOT {
 
 		HTMotor *MotorBaseR;			// 关节6
 		HTMotor *MotorUarmS;			// 关节5
-		HTMotor *MotorLarmS;			// 关节4
+		//HTMotor *MotorLarmS;			// 关节4 Jy版本的没有小臂摆动电机，20221103改
 		HTMotor *MotorLarmR;			// 关节3
 		HTMotor *MotorWristS;			// 关节2
 		HTMotor *MotorWristR;			// 关节1

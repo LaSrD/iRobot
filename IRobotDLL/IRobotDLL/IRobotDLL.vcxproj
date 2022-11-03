@@ -177,7 +177,6 @@
     <ClInclude Include="include\iRobotBase.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\IRobotjy_DLL.h" />
-    <ClInclude Include="src\IRobot_DLL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
