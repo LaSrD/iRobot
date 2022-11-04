@@ -259,7 +259,7 @@ namespace iBuaa_1_Debug_v1
 
                 DeviceStatic.Log(txtjointangle1, iBuaaDebug.m_iRobot.BaseRangle);
                 DeviceStatic.Log(txtjointangle2, iBuaaDebug.m_iRobot.UarmSangle);
-                DeviceStatic.Log(txtjointangle3, iBuaaDebug.m_iRobot.LarmSangle);
+                //DeviceStatic.Log(txtjointangle3, iBuaaDebug.m_iRobot.LarmSangle);
                 DeviceStatic.Log(txtjointangle4, iBuaaDebug.m_iRobot.LarmRangle);
                 DeviceStatic.Log(txtjointangle5, iBuaaDebug.m_iRobot.WristSangle);
                 DeviceStatic.Log(txtjointangle6, iBuaaDebug.m_iRobot.WristRangle);

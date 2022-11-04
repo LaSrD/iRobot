@@ -30,5 +30,3 @@ D:\Study\VS工程\source\repos\iRobot\iRobot\iRobot_上位机_v0_1\iBuaa_1_Debug
 D:\Study\VS工程\source\repos\iRobot\iRobot\iRobot_上位机_v0_1\iBuaa_1_Debug_v1\obj\x64\Debug\iRobot_shangweiji.csproj.CopyComplete
 D:\Study\VS工程\source\repos\iRobot\iRobot\iRobot_上位机_v0_1\iBuaa_1_Debug_v1\obj\x64\Debug\iBuaa_1_Debug_v1.exe
 D:\Study\VS工程\source\repos\iRobot\iRobot\iRobot_上位机_v0_1\iBuaa_1_Debug_v1\obj\x64\Debug\iBuaa_1_Debug_v1.pdb
-D:\Study\VS工程\source\repos\iRobot\iRobot\iRobot_上位机_v0_1\iBuaa_1_Debug_v1\bin\x64\Debug\IRobotDLL_forCsharp.dll
-D:\Study\VS工程\source\repos\iRobot\iRobot\iRobot_上位机_v0_1\iBuaa_1_Debug_v1\bin\x64\Debug\IRobotDLL_forCsharp.pdb

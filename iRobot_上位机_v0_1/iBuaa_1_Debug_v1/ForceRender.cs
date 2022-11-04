@@ -35,7 +35,7 @@ namespace iBuaa_1_Debug_v1
                 Thread.Sleep(200);
                 DeviceStatic.Log(txtjointangle1, iBuaaDebug.m_iRobot.BaseRangle);
                 DeviceStatic.Log(txtjointangle2, iBuaaDebug.m_iRobot.UarmSangle);
-                DeviceStatic.Log(txtjointangle3, iBuaaDebug.m_iRobot.LarmSangle);
+                //DeviceStatic.Log(txtjointangle3, iBuaaDebug.m_iRobot.LarmSangle);
                 DeviceStatic.Log(txtjointangle4, iBuaaDebug.m_iRobot.LarmRangle);
                 DeviceStatic.Log(txtjointangle5, iBuaaDebug.m_iRobot.WristSangle);
                 DeviceStatic.Log(txtjointangle6, iBuaaDebug.m_iRobot.WristRangle);
@@ -43,7 +43,7 @@ namespace iBuaa_1_Debug_v1
                 //电流
                 DeviceStatic.Log(txtcurrent1, iBuaaDebug.m_iRobot.Current[5]);
                 DeviceStatic.Log(txtcurrent2, iBuaaDebug.m_iRobot.Current[4]);
-                DeviceStatic.Log(txtcurrent3, iBuaaDebug.m_iRobot.Current[3]);
+               // DeviceStatic.Log(txtcurrent3, iBuaaDebug.m_iRobot.Current[3]);
                 DeviceStatic.Log(txtcurrent4, iBuaaDebug.m_iRobot.Current[2]);
                 DeviceStatic.Log(txtcurrent5, iBuaaDebug.m_iRobot.Current[1]);
                 DeviceStatic.Log(txtcurrent6, iBuaaDebug.m_iRobot.Current[0]);

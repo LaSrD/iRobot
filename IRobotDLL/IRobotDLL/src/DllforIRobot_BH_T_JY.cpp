@@ -130,8 +130,8 @@ ROBOT::StateVector & ROBOT::IROBOT::State()
 	this->m_state[1] = GetState(*MotorWristR);
 	this->m_state[2] = GetState(*MotorLarmR);
 	// this->m_state[3] = GetState(*MotorLarmS); //Jy版本的没有小臂摆动电机，20221103改
-	this->m_state[4] = GetState(*MotorUarmS);
-	this->m_state[5] = GetState(*MotorBaseR);
+	this->m_state[3] = GetState(*MotorUarmS);
+	this->m_state[4] = GetState(*MotorBaseR);
 	return this->m_state;
 }
 //

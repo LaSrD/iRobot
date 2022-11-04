@@ -43,14 +43,14 @@ namespace iBuaa_1_Debug_v1
                
                 Log(txtjointangle1, iBuaaDebug.m_iRobot.BaseRangle);
                 Log(txtjointangle2, iBuaaDebug.m_iRobot.UarmSangle);
-                Log(txtjointangle3, iBuaaDebug.m_iRobot.LarmSangle);
+              //  Log(txtjointangle3, iBuaaDebug.m_iRobot.LarmSangle);
                 Log(txtjointangle4, iBuaaDebug.m_iRobot.LarmRangle);
                 Log(txtjointangle5, iBuaaDebug.m_iRobot.WristSangle);
                 Log(txtjointangle6, iBuaaDebug.m_iRobot.WristRangle);
                 //电流
                 Log(txtcurrent1, iBuaaDebug.m_iRobot.Current[5]);
                 Log(txtcurrent2, iBuaaDebug.m_iRobot.Current[4]);
-                Log(txtcurrent3, iBuaaDebug.m_iRobot.Current[3]);
+               
                 Log(txtcurrent4, iBuaaDebug.m_iRobot.Current[2]);
                 Log(txtcurrent5, iBuaaDebug.m_iRobot.Current[1]);
                 Log(txtcurrent6, iBuaaDebug.m_iRobot.Current[0]);
@@ -204,17 +204,17 @@ namespace iBuaa_1_Debug_v1
 
         private void btnlock3_Click(object sender, EventArgs e)
         {
-            if (!LarmSLock)
-            {
-                btnlock3.Text = "UnLock";
-                iBuaaDebug.m_iRobot.LockLarmS();
-            }
-            else
-            {
-                btnlock3.Text = "Lock";
-                iBuaaDebug.m_iRobot.UnLockLarmS();
-            }
-            LarmSLock = !LarmSLock;
+            //if (!LarmSLock)
+            //{
+            //    btnlock3.Text = "UnLock";
+            //    iBuaaDebug.m_iRobot.LockLarmS();
+            //}
+            //else
+            //{
+            //    btnlock3.Text = "Lock";
+            //    iBuaaDebug.m_iRobot.UnLockLarmS();
+            //}
+            //LarmSLock = !LarmSLock;
         }
 
         private void btnlock4_Click(object sender, EventArgs e)

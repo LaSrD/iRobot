@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtjointangle6 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtjointangle4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtjointangle5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtjointangle3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtjointangle2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,12 +38,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtcurrent1 = new System.Windows.Forms.TextBox();
             this.txtcurrent2 = new System.Windows.Forms.TextBox();
-            this.txtcurrent3 = new System.Windows.Forms.TextBox();
             this.txtcurrent4 = new System.Windows.Forms.TextBox();
             this.txtcurrent5 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtcurrent6 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnlock6 = new System.Windows.Forms.Button();
+            this.btnlock5 = new System.Windows.Forms.Button();
+            this.btnlock4 = new System.Windows.Forms.Button();
+            this.btnlock2 = new System.Windows.Forms.Button();
+            this.btnlock1 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -75,12 +74,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnlock1 = new System.Windows.Forms.Button();
-            this.btnlock2 = new System.Windows.Forms.Button();
-            this.btnlock3 = new System.Windows.Forms.Button();
-            this.btnlock4 = new System.Windows.Forms.Button();
-            this.btnlock5 = new System.Windows.Forms.Button();
-            this.btnlock6 = new System.Windows.Forms.Button();
+            this.txtjointangle6 = new System.Windows.Forms.TextBox();
+            this.txtjointangle4 = new System.Windows.Forms.TextBox();
+            this.txtjointangle5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -91,12 +87,10 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtjointangle6);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtjointangle4);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtjointangle5);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtjointangle3);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtjointangle2);
             this.groupBox1.Controls.Add(this.label2);
@@ -104,35 +98,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(150, 228);
+            this.groupBox1.Size = new System.Drawing.Size(150, 203);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "关节角度";
-            // 
-            // txtjointangle6
-            // 
-            this.txtjointangle6.Location = new System.Drawing.Point(68, 195);
-            this.txtjointangle6.Name = "txtjointangle6";
-            this.txtjointangle6.ReadOnly = true;
-            this.txtjointangle6.Size = new System.Drawing.Size(70, 21);
-            this.txtjointangle6.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 198);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 12);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "关节6 / °";
-            // 
-            // txtjointangle4
-            // 
-            this.txtjointangle4.Location = new System.Drawing.Point(68, 124);
-            this.txtjointangle4.Name = "txtjointangle4";
-            this.txtjointangle4.ReadOnly = true;
-            this.txtjointangle4.Size = new System.Drawing.Size(70, 21);
-            this.txtjointangle4.TabIndex = 7;
             // 
             // label5
             // 
@@ -143,14 +112,6 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "关节4 / °";
             // 
-            // txtjointangle5
-            // 
-            this.txtjointangle5.Location = new System.Drawing.Point(68, 159);
-            this.txtjointangle5.Name = "txtjointangle5";
-            this.txtjointangle5.ReadOnly = true;
-            this.txtjointangle5.Size = new System.Drawing.Size(70, 21);
-            this.txtjointangle5.TabIndex = 7;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -159,14 +120,6 @@
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "关节5 / °";
-            // 
-            // txtjointangle3
-            // 
-            this.txtjointangle3.Location = new System.Drawing.Point(68, 89);
-            this.txtjointangle3.Name = "txtjointangle3";
-            this.txtjointangle3.ReadOnly = true;
-            this.txtjointangle3.Size = new System.Drawing.Size(70, 21);
-            this.txtjointangle3.TabIndex = 5;
             // 
             // label3
             // 
@@ -227,17 +180,9 @@
             this.txtcurrent2.Size = new System.Drawing.Size(50, 21);
             this.txtcurrent2.TabIndex = 9;
             // 
-            // txtcurrent3
-            // 
-            this.txtcurrent3.Location = new System.Drawing.Point(10, 89);
-            this.txtcurrent3.Name = "txtcurrent3";
-            this.txtcurrent3.ReadOnly = true;
-            this.txtcurrent3.Size = new System.Drawing.Size(50, 21);
-            this.txtcurrent3.TabIndex = 11;
-            // 
             // txtcurrent4
             // 
-            this.txtcurrent4.Location = new System.Drawing.Point(10, 124);
+            this.txtcurrent4.Location = new System.Drawing.Point(14, 87);
             this.txtcurrent4.Name = "txtcurrent4";
             this.txtcurrent4.ReadOnly = true;
             this.txtcurrent4.Size = new System.Drawing.Size(50, 21);
@@ -245,7 +190,7 @@
             // 
             // txtcurrent5
             // 
-            this.txtcurrent5.Location = new System.Drawing.Point(10, 159);
+            this.txtcurrent5.Location = new System.Drawing.Point(14, 122);
             this.txtcurrent5.Name = "txtcurrent5";
             this.txtcurrent5.ReadOnly = true;
             this.txtcurrent5.Size = new System.Drawing.Size(50, 21);
@@ -256,19 +201,18 @@
             this.groupBox2.Controls.Add(this.txtcurrent6);
             this.groupBox2.Controls.Add(this.txtcurrent5);
             this.groupBox2.Controls.Add(this.txtcurrent4);
-            this.groupBox2.Controls.Add(this.txtcurrent3);
             this.groupBox2.Controls.Add(this.txtcurrent2);
             this.groupBox2.Controls.Add(this.txtcurrent1);
             this.groupBox2.Location = new System.Drawing.Point(168, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(72, 228);
+            this.groupBox2.Size = new System.Drawing.Size(72, 203);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "电流";
             // 
             // txtcurrent6
             // 
-            this.txtcurrent6.Location = new System.Drawing.Point(11, 198);
+            this.txtcurrent6.Location = new System.Drawing.Point(15, 161);
             this.txtcurrent6.Name = "txtcurrent6";
             this.txtcurrent6.ReadOnly = true;
             this.txtcurrent6.Size = new System.Drawing.Size(50, 21);
@@ -279,15 +223,69 @@
             this.groupBox5.Controls.Add(this.btnlock6);
             this.groupBox5.Controls.Add(this.btnlock5);
             this.groupBox5.Controls.Add(this.btnlock4);
-            this.groupBox5.Controls.Add(this.btnlock3);
             this.groupBox5.Controls.Add(this.btnlock2);
             this.groupBox5.Controls.Add(this.btnlock1);
             this.groupBox5.Location = new System.Drawing.Point(246, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(72, 228);
+            this.groupBox5.Size = new System.Drawing.Size(72, 203);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "锁定";
+            // 
+            // btnlock6
+            // 
+            this.btnlock6.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnlock6.Location = new System.Drawing.Point(0, 157);
+            this.btnlock6.Name = "btnlock6";
+            this.btnlock6.Size = new System.Drawing.Size(66, 23);
+            this.btnlock6.TabIndex = 5;
+            this.btnlock6.Text = "Lock";
+            this.btnlock6.UseVisualStyleBackColor = false;
+            this.btnlock6.Click += new System.EventHandler(this.btnlock6_Click);
+            // 
+            // btnlock5
+            // 
+            this.btnlock5.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnlock5.Location = new System.Drawing.Point(0, 122);
+            this.btnlock5.Name = "btnlock5";
+            this.btnlock5.Size = new System.Drawing.Size(66, 23);
+            this.btnlock5.TabIndex = 4;
+            this.btnlock5.Text = "Lock";
+            this.btnlock5.UseVisualStyleBackColor = false;
+            this.btnlock5.Click += new System.EventHandler(this.btnlock5_Click);
+            // 
+            // btnlock4
+            // 
+            this.btnlock4.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnlock4.Location = new System.Drawing.Point(0, 87);
+            this.btnlock4.Name = "btnlock4";
+            this.btnlock4.Size = new System.Drawing.Size(66, 23);
+            this.btnlock4.TabIndex = 3;
+            this.btnlock4.Text = "Lock";
+            this.btnlock4.UseVisualStyleBackColor = false;
+            this.btnlock4.Click += new System.EventHandler(this.btnlock4_Click);
+            // 
+            // btnlock2
+            // 
+            this.btnlock2.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnlock2.Location = new System.Drawing.Point(3, 52);
+            this.btnlock2.Name = "btnlock2";
+            this.btnlock2.Size = new System.Drawing.Size(66, 23);
+            this.btnlock2.TabIndex = 1;
+            this.btnlock2.Text = "Lock";
+            this.btnlock2.UseVisualStyleBackColor = false;
+            this.btnlock2.Click += new System.EventHandler(this.btnlock2_Click);
+            // 
+            // btnlock1
+            // 
+            this.btnlock1.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnlock1.Location = new System.Drawing.Point(3, 17);
+            this.btnlock1.Name = "btnlock1";
+            this.btnlock1.Size = new System.Drawing.Size(66, 23);
+            this.btnlock1.TabIndex = 0;
+            this.btnlock1.Text = "Lock";
+            this.btnlock1.UseVisualStyleBackColor = false;
+            this.btnlock1.Click += new System.EventHandler(this.btnlock1_Click);
             // 
             // groupBox6
             // 
@@ -549,71 +547,29 @@
             this.label11.Text = "Fx /mN";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnlock1
+            // txtjointangle6
             // 
-            this.btnlock1.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnlock1.Location = new System.Drawing.Point(3, 17);
-            this.btnlock1.Name = "btnlock1";
-            this.btnlock1.Size = new System.Drawing.Size(66, 23);
-            this.btnlock1.TabIndex = 0;
-            this.btnlock1.Text = "Lock";
-            this.btnlock1.UseVisualStyleBackColor = false;
-            this.btnlock1.Click += new System.EventHandler(this.btnlock1_Click);
+            this.txtjointangle6.Location = new System.Drawing.Point(68, 160);
+            this.txtjointangle6.Name = "txtjointangle6";
+            this.txtjointangle6.ReadOnly = true;
+            this.txtjointangle6.Size = new System.Drawing.Size(70, 21);
+            this.txtjointangle6.TabIndex = 12;
             // 
-            // btnlock2
+            // txtjointangle4
             // 
-            this.btnlock2.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnlock2.Location = new System.Drawing.Point(3, 52);
-            this.btnlock2.Name = "btnlock2";
-            this.btnlock2.Size = new System.Drawing.Size(66, 23);
-            this.btnlock2.TabIndex = 1;
-            this.btnlock2.Text = "Lock";
-            this.btnlock2.UseVisualStyleBackColor = false;
-            this.btnlock2.Click += new System.EventHandler(this.btnlock2_Click);
+            this.txtjointangle4.Location = new System.Drawing.Point(68, 89);
+            this.txtjointangle4.Name = "txtjointangle4";
+            this.txtjointangle4.ReadOnly = true;
+            this.txtjointangle4.Size = new System.Drawing.Size(70, 21);
+            this.txtjointangle4.TabIndex = 10;
             // 
-            // btnlock3
+            // txtjointangle5
             // 
-            this.btnlock3.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnlock3.Location = new System.Drawing.Point(3, 87);
-            this.btnlock3.Name = "btnlock3";
-            this.btnlock3.Size = new System.Drawing.Size(66, 23);
-            this.btnlock3.TabIndex = 2;
-            this.btnlock3.Text = "Lock";
-            this.btnlock3.UseVisualStyleBackColor = false;
-            this.btnlock3.Click += new System.EventHandler(this.btnlock3_Click);
-            // 
-            // btnlock4
-            // 
-            this.btnlock4.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnlock4.Location = new System.Drawing.Point(3, 122);
-            this.btnlock4.Name = "btnlock4";
-            this.btnlock4.Size = new System.Drawing.Size(66, 23);
-            this.btnlock4.TabIndex = 3;
-            this.btnlock4.Text = "Lock";
-            this.btnlock4.UseVisualStyleBackColor = false;
-            this.btnlock4.Click += new System.EventHandler(this.btnlock4_Click);
-            // 
-            // btnlock5
-            // 
-            this.btnlock5.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnlock5.Location = new System.Drawing.Point(3, 157);
-            this.btnlock5.Name = "btnlock5";
-            this.btnlock5.Size = new System.Drawing.Size(66, 23);
-            this.btnlock5.TabIndex = 4;
-            this.btnlock5.Text = "Lock";
-            this.btnlock5.UseVisualStyleBackColor = false;
-            this.btnlock5.Click += new System.EventHandler(this.btnlock5_Click);
-            // 
-            // btnlock6
-            // 
-            this.btnlock6.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnlock6.Location = new System.Drawing.Point(3, 192);
-            this.btnlock6.Name = "btnlock6";
-            this.btnlock6.Size = new System.Drawing.Size(66, 23);
-            this.btnlock6.TabIndex = 5;
-            this.btnlock6.Text = "Lock";
-            this.btnlock6.UseVisualStyleBackColor = false;
-            this.btnlock6.Click += new System.EventHandler(this.btnlock6_Click);
+            this.txtjointangle5.Location = new System.Drawing.Point(68, 124);
+            this.txtjointangle5.Name = "txtjointangle5";
+            this.txtjointangle5.ReadOnly = true;
+            this.txtjointangle5.Size = new System.Drawing.Size(70, 21);
+            this.txtjointangle5.TabIndex = 11;
             // 
             // DeviceStatic
             // 
@@ -643,11 +599,8 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtjointangle4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtjointangle5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtjointangle3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtjointangle2;
         private System.Windows.Forms.Label label2;
@@ -655,7 +608,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtcurrent1;
         private System.Windows.Forms.TextBox txtcurrent2;
-        private System.Windows.Forms.TextBox txtcurrent3;
         private System.Windows.Forms.TextBox txtcurrent4;
         private System.Windows.Forms.TextBox txtcurrent5;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -686,14 +638,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtjointangle6;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtcurrent6;
         private System.Windows.Forms.Button btnlock6;
         private System.Windows.Forms.Button btnlock5;
         private System.Windows.Forms.Button btnlock4;
-        private System.Windows.Forms.Button btnlock3;
         private System.Windows.Forms.Button btnlock2;
         private System.Windows.Forms.Button btnlock1;
+        private System.Windows.Forms.TextBox txtjointangle6;
+        private System.Windows.Forms.TextBox txtjointangle4;
+        private System.Windows.Forms.TextBox txtjointangle5;
     }
 }

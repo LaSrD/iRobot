@@ -276,7 +276,7 @@ namespace iBuaa_1_Debug_v1
                 server.ServerSendData(datas_lock);
                 double[] angle = {  m_iRobot.BaseRangle,
                                     m_iRobot.UarmSangle,
-                                    m_iRobot.LarmSangle,
+                                    0 ,//m_iRobot.LarmSangle,
                                     m_iRobot.LarmRangle,
                                     m_iRobot.WristSangle,
                                     m_iRobot.WristRangle };

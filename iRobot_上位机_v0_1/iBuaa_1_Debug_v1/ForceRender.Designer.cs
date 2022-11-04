@@ -52,24 +52,20 @@
             this.txtTorque_6 = new System.Windows.Forms.TextBox();
             this.txtTorque_5 = new System.Windows.Forms.TextBox();
             this.txtTorque_4 = new System.Windows.Forms.TextBox();
-            this.txtTorque_3 = new System.Windows.Forms.TextBox();
             this.txtTorque_2 = new System.Windows.Forms.TextBox();
             this.txtTorque_1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtcurrent6 = new System.Windows.Forms.TextBox();
             this.txtcurrent5 = new System.Windows.Forms.TextBox();
             this.txtcurrent4 = new System.Windows.Forms.TextBox();
-            this.txtcurrent3 = new System.Windows.Forms.TextBox();
             this.txtcurrent2 = new System.Windows.Forms.TextBox();
             this.txtcurrent1 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtjointangle6 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtjointangle4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtjointangle5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtjointangle3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtjointangle2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -317,7 +313,6 @@
             this.groupBox5.Controls.Add(this.txtTorque_6);
             this.groupBox5.Controls.Add(this.txtTorque_5);
             this.groupBox5.Controls.Add(this.txtTorque_4);
-            this.groupBox5.Controls.Add(this.txtTorque_3);
             this.groupBox5.Controls.Add(this.txtTorque_2);
             this.groupBox5.Controls.Add(this.txtTorque_1);
             this.groupBox5.Location = new System.Drawing.Point(247, 289);
@@ -329,7 +324,7 @@
             // 
             // txtTorque_6
             // 
-            this.txtTorque_6.Location = new System.Drawing.Point(10, 189);
+            this.txtTorque_6.Location = new System.Drawing.Point(10, 149);
             this.txtTorque_6.Name = "txtTorque_6";
             this.txtTorque_6.ReadOnly = true;
             this.txtTorque_6.Size = new System.Drawing.Size(50, 21);
@@ -337,7 +332,7 @@
             // 
             // txtTorque_5
             // 
-            this.txtTorque_5.Location = new System.Drawing.Point(10, 159);
+            this.txtTorque_5.Location = new System.Drawing.Point(10, 119);
             this.txtTorque_5.Name = "txtTorque_5";
             this.txtTorque_5.ReadOnly = true;
             this.txtTorque_5.Size = new System.Drawing.Size(50, 21);
@@ -345,19 +340,11 @@
             // 
             // txtTorque_4
             // 
-            this.txtTorque_4.Location = new System.Drawing.Point(10, 124);
+            this.txtTorque_4.Location = new System.Drawing.Point(10, 84);
             this.txtTorque_4.Name = "txtTorque_4";
             this.txtTorque_4.ReadOnly = true;
             this.txtTorque_4.Size = new System.Drawing.Size(50, 21);
             this.txtTorque_4.TabIndex = 13;
-            // 
-            // txtTorque_3
-            // 
-            this.txtTorque_3.Location = new System.Drawing.Point(10, 89);
-            this.txtTorque_3.Name = "txtTorque_3";
-            this.txtTorque_3.ReadOnly = true;
-            this.txtTorque_3.Size = new System.Drawing.Size(50, 21);
-            this.txtTorque_3.TabIndex = 11;
             // 
             // txtTorque_2
             // 
@@ -380,7 +367,6 @@
             this.groupBox2.Controls.Add(this.txtcurrent6);
             this.groupBox2.Controls.Add(this.txtcurrent5);
             this.groupBox2.Controls.Add(this.txtcurrent4);
-            this.groupBox2.Controls.Add(this.txtcurrent3);
             this.groupBox2.Controls.Add(this.txtcurrent2);
             this.groupBox2.Controls.Add(this.txtcurrent1);
             this.groupBox2.Location = new System.Drawing.Point(168, 289);
@@ -392,7 +378,7 @@
             // 
             // txtcurrent6
             // 
-            this.txtcurrent6.Location = new System.Drawing.Point(10, 189);
+            this.txtcurrent6.Location = new System.Drawing.Point(10, 152);
             this.txtcurrent6.Name = "txtcurrent6";
             this.txtcurrent6.ReadOnly = true;
             this.txtcurrent6.Size = new System.Drawing.Size(50, 21);
@@ -400,7 +386,7 @@
             // 
             // txtcurrent5
             // 
-            this.txtcurrent5.Location = new System.Drawing.Point(10, 159);
+            this.txtcurrent5.Location = new System.Drawing.Point(10, 122);
             this.txtcurrent5.Name = "txtcurrent5";
             this.txtcurrent5.ReadOnly = true;
             this.txtcurrent5.Size = new System.Drawing.Size(50, 21);
@@ -408,19 +394,11 @@
             // 
             // txtcurrent4
             // 
-            this.txtcurrent4.Location = new System.Drawing.Point(10, 124);
+            this.txtcurrent4.Location = new System.Drawing.Point(10, 87);
             this.txtcurrent4.Name = "txtcurrent4";
             this.txtcurrent4.ReadOnly = true;
             this.txtcurrent4.Size = new System.Drawing.Size(50, 21);
             this.txtcurrent4.TabIndex = 13;
-            // 
-            // txtcurrent3
-            // 
-            this.txtcurrent3.Location = new System.Drawing.Point(10, 89);
-            this.txtcurrent3.Name = "txtcurrent3";
-            this.txtcurrent3.ReadOnly = true;
-            this.txtcurrent3.Size = new System.Drawing.Size(50, 21);
-            this.txtcurrent3.TabIndex = 11;
             // 
             // txtcurrent2
             // 
@@ -441,12 +419,10 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtjointangle6);
-            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.txtjointangle4);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.txtjointangle5);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.txtjointangle3);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtjointangle2);
             this.groupBox3.Controls.Add(this.label2);
@@ -461,24 +437,15 @@
             // 
             // txtjointangle6
             // 
-            this.txtjointangle6.Location = new System.Drawing.Point(68, 191);
+            this.txtjointangle6.Location = new System.Drawing.Point(68, 156);
             this.txtjointangle6.Name = "txtjointangle6";
             this.txtjointangle6.ReadOnly = true;
             this.txtjointangle6.Size = new System.Drawing.Size(70, 21);
             this.txtjointangle6.TabIndex = 9;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 194);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 12);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "关节6 / °";
-            // 
             // txtjointangle4
             // 
-            this.txtjointangle4.Location = new System.Drawing.Point(68, 124);
+            this.txtjointangle4.Location = new System.Drawing.Point(68, 89);
             this.txtjointangle4.Name = "txtjointangle4";
             this.txtjointangle4.ReadOnly = true;
             this.txtjointangle4.Size = new System.Drawing.Size(70, 21);
@@ -495,7 +462,7 @@
             // 
             // txtjointangle5
             // 
-            this.txtjointangle5.Location = new System.Drawing.Point(68, 159);
+            this.txtjointangle5.Location = new System.Drawing.Point(68, 124);
             this.txtjointangle5.Name = "txtjointangle5";
             this.txtjointangle5.ReadOnly = true;
             this.txtjointangle5.Size = new System.Drawing.Size(70, 21);
@@ -509,14 +476,6 @@
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "关节5 / °";
-            // 
-            // txtjointangle3
-            // 
-            this.txtjointangle3.Location = new System.Drawing.Point(68, 89);
-            this.txtjointangle3.Name = "txtjointangle3";
-            this.txtjointangle3.ReadOnly = true;
-            this.txtjointangle3.Size = new System.Drawing.Size(70, 21);
-            this.txtjointangle3.TabIndex = 5;
             // 
             // label3
             // 
@@ -609,13 +568,11 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtTorque_5;
         private System.Windows.Forms.TextBox txtTorque_4;
-        private System.Windows.Forms.TextBox txtTorque_3;
         private System.Windows.Forms.TextBox txtTorque_2;
         private System.Windows.Forms.TextBox txtTorque_1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtcurrent5;
         private System.Windows.Forms.TextBox txtcurrent4;
-        private System.Windows.Forms.TextBox txtcurrent3;
         private System.Windows.Forms.TextBox txtcurrent2;
         private System.Windows.Forms.TextBox txtcurrent1;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -623,7 +580,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtjointangle5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtjointangle3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtjointangle2;
         private System.Windows.Forms.Label label2;
@@ -639,6 +595,5 @@
         private System.Windows.Forms.TextBox txtTorque_6;
         private System.Windows.Forms.TextBox txtcurrent6;
         private System.Windows.Forms.TextBox txtjointangle6;
-        private System.Windows.Forms.Label label12;
     }
 }
