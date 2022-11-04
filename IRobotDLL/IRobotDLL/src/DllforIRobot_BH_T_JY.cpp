@@ -221,7 +221,7 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	// 重力补偿输出力矩
 	double Torque_1 = 0;
 
-	double Torque_2 = -GLODO * (c2 * H2 * M2 + c3 * c3 * D3 *M3*s2 - c3 * c3 * H3*M3*s2 + D3 * M3*s2*s3*s3 + D3 * M4*s2*s3*s3 - H3 * M3*s2*s3*s3 + c3 * c3 * c4 * c4  * D3*M4*s2 + c3 * c3 * D3*M4*s2*s4 * s4 + c2 * c3*H4*M4*s4 + c3 * c3 * c4*H4*M4*s2 + c4 * H4 * M4 *s2*s3*s3);
+	double Torque_2 = - GLODO * (c2 * H2 * M2 + c3 * c3 * D3 *M3*s2 - c3 * c3 * H3*M3*s2 + D3 * M3*s2*s3*s3 + D3 * M4*s2*s3*s3 - H3 * M3*s2*s3*s3 + c3 * c3 * c4 * c4  * D3*M4*s2 + c3 * c3 * D3*M4*s2*s4 * s4 + c2 * c3*H4*M4*s4 + c3 * c3 * c4*H4*M4*s2 + c4 * H4 * M4 *s2*s3*s3);
 
 	double Torque_3 = -GLODO * H4 * M4 * s2 * s3 * s4;
 
@@ -252,11 +252,11 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	Torque_1 += c5 * my*s2*s3 - c2 * c5*mx*s4 - c2 * c4*mz + c2 * my*s4*s5 + c3 * mz*s2*s4 + mx * s2*s3*s5 - c3 * c5*D3*fy*s2 - c2 * c5*D5*fy*s4 - c3 * c4*c5*mx*s2 - c3 * D3*fx*s2*s5 - c5 * D5*fx*s2*s3 - c2 * D5*fx*s4*s5 + c3 * c4*my*s2*s5 + D5 * fy*s2*s3*s5 + D3 * fz*s2*s3*s4 - c3 * c4*c5*D5*fy*s2 - c4 * c5*D3*fx*s2*s3 - c3 * c4*D5*fx*s2*s5 + c4 * D3*fy*s2*s3*s5;
 
 #ifdef DEBUG
-	std::cout << Torque_1 * 20 << "\t"
-		<< Torque_2 * (20 / 3) << "\t"
-		<< Torque_3 * 20 << "\t"
-		<< Torque_4 * 62 << "\t"
-		<< Torque_5 * 62 << "\n";
+	std::cout << Torque_1 << "\t"
+		<< Torque_2 << "\t"
+		<< Torque_3 << "\t"
+		<< Torque_4 << "\t"
+		<< Torque_5 << "\n";
 #endif // debug
 
 	//if (!this->is_BaseLock)

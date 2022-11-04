@@ -23,13 +23,18 @@ int main()
 		<< INFO.Procotol_type << " "
 		<< INFO.Serial_Num << endl;
 	ROBOT::ROBOTANGLE Test2angle;
+	ROBOT::ENDPOSITION Test2pos;
+
 
 	while (test2.isConnect())
 	{
 		Test2angle = test2.Angle();
+		Test2pos = test2.Pose();
 		//cout << Test2angle.BaseR << " " << Test2angle.UarmS << " "
 		//	<< Test2angle.LarmR << " " << Test2angle.WristS << " "
 		//	<< Test2angle.WristR << endl;
+		// cout << Test2pos.px << " " << Test2pos.py << " " << Test2pos.pz << endl;
+		test2.OutputForce();
 	}
 }
 
