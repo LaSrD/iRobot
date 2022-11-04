@@ -33,7 +33,7 @@ int main()
 		//cout << Test2angle.BaseR << " " << Test2angle.UarmS << " "
 		//	<< Test2angle.LarmR << " " << Test2angle.WristS << " "
 		//	<< Test2angle.WristR << endl;
-		// cout << Test2pos.px << " " << Test2pos.py << " " << Test2pos.pz << endl;
+		//cout << Test2pos.px << " " << Test2pos.py << " " << Test2pos.pz << endl;
 		test2.OutputForce();
 	}
 }

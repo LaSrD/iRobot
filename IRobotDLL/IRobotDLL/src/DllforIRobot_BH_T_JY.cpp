@@ -221,10 +221,9 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	// 重力补偿输出力矩
 	double Torque_1 = 0;
 
-	double Torque_2 = - GLODO * (c2 * H2 * M2 + c3 * c3 * D3 *M3*s2 - c3 * c3 * H3*M3*s2 + D3 * M3*s2*s3*s3 + D3 * M4*s2*s3*s3 - H3 * M3*s2*s3*s3 + c3 * c3 * c4 * c4  * D3*M4*s2 + c3 * c3 * D3*M4*s2*s4 * s4 + c2 * c3*H4*M4*s4 + c3 * c3 * c4*H4*M4*s2 + c4 * H4 * M4 *s2*s3*s3);
-
+	double Torque_2 = s3 * (GLODO*H3*M3*s2*s3 - c4 * GLODO*H4*M4*s2*s3) - c3 * (GLODO*H4*M4*(c2*s4 + c3 * c4*s2) - c3 * GLODO*H3*M3*s2) - D3 * (s3*(GLODO*M3*s2*s3 + GLODO * M4*s2*s3) + c3 * (c3*GLODO*M3*s2 + c4 * GLODO*M4*(c2*s4 + c3 * c4*s2) - GLODO * M4*s4*(c2*c4 - c3 * s2*s4))) - GLODO * H2*M2*s2;
+	
 	double Torque_3 = -GLODO * H4 * M4 * s2 * s3 * s4;
-
 	double Torque_4 = - GLODO * H4 * M4 *(c2 * s4 + c3 * c4*s2);
 	double Torque_5 = 0.0;
 	
@@ -247,47 +246,47 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	Torque_5 += mz;
 	Torque_4 += c5 * my + mx * s5 - D5 * (c5*fx - fy * s5);
 	Torque_3 += c4 * mz + c5 * mx*s4 - my * s4*s5 + D5 * fx*s4*s5 + c5 * D5*fy*s4;
-	Torque_2 += c3 * c5*my + c3 * mx*s5 - mz * s3*s4 + c4 * c5*mx*s3 + D3 * fx*s3*s5 - c4 * my*s3*s5 - c3 * c5*D5*fx + c5 * D3*fy*s3 + c3 * D5*fy*s5 + c3 * D3*fz*s4 - c3 * c4*c5*D3*fx + c3 * c4*D3*fy*s5 + c4 * c5*D5*fy*s3 + c4 * D5*fx*s3*s5;
+	Torque_2 += c3 * c5*my + c3 * mx*s5 - mz * s3*s4 + c4 * c5*mx*s3 + D3 * fx*s3*s5 - c4 * my*s3*s5 - c3 * c5*D5*fx + c5 * D3*fy*s3 + c3 *D5*fy*s5 + c3 * D3*fz*s4 - c3 * c4*c5*D3*fx + c3 * c4*D3*fy*s5 + c4 * c5*D5*fy*s3 + c4 * D5*fx*s3*s5;
 
 	Torque_1 += c5 * my*s2*s3 - c2 * c5*mx*s4 - c2 * c4*mz + c2 * my*s4*s5 + c3 * mz*s2*s4 + mx * s2*s3*s5 - c3 * c5*D3*fy*s2 - c2 * c5*D5*fy*s4 - c3 * c4*c5*mx*s2 - c3 * D3*fx*s2*s5 - c5 * D5*fx*s2*s3 - c2 * D5*fx*s4*s5 + c3 * c4*my*s2*s5 + D5 * fy*s2*s3*s5 + D3 * fz*s2*s3*s4 - c3 * c4*c5*D5*fy*s2 - c4 * c5*D3*fx*s2*s3 - c3 * c4*D5*fx*s2*s5 + c4 * D3*fy*s2*s3*s5;
 
 #ifdef DEBUG
 	std::cout << Torque_1 << "\t"
-		<< Torque_2 << "\t"
-		<< Torque_3 << "\t"
-		<< Torque_4 << "\t"
-		<< Torque_5 << "\n";
+		<< Torque_2 * 20 / 3 << "\t"
+		<< Torque_3 * 62<< "\t"
+		<< Torque_4 * 62<< "\t"
+		<< Torque_5 * 62 << "\n";
 #endif // debug
 
-	//if (!this->is_BaseLock)
-	//	this->MotorBaseR->TorqueControl(*m_serial, Torque_1);
-	//else
-	//	this->MotorBaseR->IncreControl(*m_serial, 0, 10);
+	if (!this->is_BaseLock)
+		this->MotorBaseR->TorqueControl(*m_serial, Torque_1);
+	else
+		this->MotorBaseR->IncreControl(*m_serial, 0, 10);
 
-	//if(!this->is_UarmSLock)
-	//	this->MotorUarmS->TorqueControl(*m_serial, Torque_2 / UPARMRATIO);
-	//else
-	//	this->MotorUarmS->IncreControl(*m_serial, 0, 10);
+	if(!this->is_UarmSLock)
+		this->MotorUarmS->TorqueControl(*m_serial, Torque_2 / UPARMRATIO);
+	else
+		this->MotorUarmS->IncreControl(*m_serial, 0, 10);
 
-	///*if(!this->is_LarmSLock)
-	//	this->MotorLarmS->TorqueControl(*m_serial, Torque_3);
-	//else
-	//	this->motorlarms->IncreControl(*m_serial, 0, 10);*/ //jy版本的没有小臂摆动电机，20221103改
-	// 
-	//if(!this->is_LarmRLock)
-	//	this->MotorLarmR->TorqueControl(*m_serial, Torque_3);
-	//else
-	//	this->MotorLarmR->IncreControl(*m_serial, 0, 10);
+	/*if(!this->is_LarmSLock)
+		this->MotorLarmS->TorqueControl(*m_serial, Torque_3);
+	else
+		this->motorlarms->IncreControl(*m_serial, 0, 10);*/ //jy版本的没有小臂摆动电机，20221103改
+	 
+	if(!this->is_LarmRLock)
+		this->MotorLarmR->TorqueControl(*m_serial, Torque_3);
+	else
+		this->MotorLarmR->IncreControl(*m_serial, 0, 10);
 
-	//if(!this->is_WristSLock)
-	//	this->MotorWristS->TorqueControl(*m_serial, Torque_4);
-	//else
-	//	this->MotorWristS->IncreControl(*m_serial, 0, 10);
+	if(!this->is_WristSLock)
+		this->MotorWristS->TorqueControl(*m_serial, Torque_4);
+	else
+		this->MotorWristS->IncreControl(*m_serial, 0, 10);
 
-	//if (!this->is_WristRLock)
-	//	this->MotorWristR->TorqueControl(*m_serial, Torque_5);
-	//else
-	//	this->MotorWristR->IncreControl(*m_serial, 0, 10);
+	if (!this->is_WristRLock)
+		this->MotorWristR->TorqueControl(*m_serial, Torque_5);
+	else
+		this->MotorWristR->IncreControl(*m_serial, 0, 10);
 }
 void ROBOT::IROBOT::OutputForce(double _fx, double _fy, double _fz, double _mx, double _my, double _mz)
 {
