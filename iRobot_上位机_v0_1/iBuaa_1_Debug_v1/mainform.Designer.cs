@@ -75,6 +75,7 @@
             this.力反馈演示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.波形显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.双机遥操作模式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button3 = new System.Windows.Forms.Button();
             this.labColorconnect = new System.Windows.Forms.Label();
             this.labInfoconnect = new System.Windows.Forms.Label();
             this.labhandle2 = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.相机设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.停止ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer_camera = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
             this.zz.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -484,13 +484,13 @@
             // 
             this.wavepan.Location = new System.Drawing.Point(3, 45);
             this.wavepan.Name = "wavepan";
-            this.wavepan.Size = new System.Drawing.Size(824, 561);
+            this.wavepan.Size = new System.Drawing.Size(821, 561);
             this.wavepan.TabIndex = 0;
             this.wavepan.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(617, 524);
+            this.button1.Location = new System.Drawing.Point(617, 564);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 37);
             this.button1.TabIndex = 21;
@@ -500,7 +500,7 @@
             // 
             // button_zhongli
             // 
-            this.button_zhongli.Location = new System.Drawing.Point(359, 525);
+            this.button_zhongli.Location = new System.Drawing.Point(359, 565);
             this.button_zhongli.Name = "button_zhongli";
             this.button_zhongli.Size = new System.Drawing.Size(123, 35);
             this.button_zhongli.TabIndex = 19;
@@ -567,6 +567,16 @@
             this.双机遥操作模式ToolStripMenuItem.Size = new System.Drawing.Size(104, 21);
             this.双机遥操作模式ToolStripMenuItem.Text = "双机遥操作模式";
             this.双机遥操作模式ToolStripMenuItem.Click += new System.EventHandler(this.双机遥操作模式ToolStripMenuItem_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(488, 564);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 37);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "虚实";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // labColorconnect
             // 
@@ -680,16 +690,6 @@
             this.停止ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.停止ToolStripMenuItem.Text = "停止";
             this.停止ToolStripMenuItem.Click += new System.EventHandler(this.停止ToolStripMenuItem_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(488, 524);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 37);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "虚实";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // iBuaaDebug
             // 
