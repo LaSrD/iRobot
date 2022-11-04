@@ -6,10 +6,10 @@
 ************************************************************************/
 
 //设备信息
-#define SERIALNUM	"iRobot_v0.1"		// 系列号
+#define SERIALNUM	"iRobot_bh_t_jy_v0.2"		// 系列号
 #define PROCOTOL	"RS485-115200"		//	通讯协议
 #define HWTYPE		"HT-DMR-4015/6315"	// 硬件类型
-#define CTRLNUM		"beta-iRobotdll_v0.1"//驱动版本
+#define CTRLNUM		"beta-iRobot_t_jy_dll_v0.2"//驱动版本
 
 #define PI 3.141592654
 //
@@ -29,19 +29,19 @@
 //大臂减速比
 #define UPARMRATIO	3.0
 //运动学参数
-#define A2			128.0
-#define D4			147.72
-#define D6			102.0
+// JY版本修改 #define A2			128.0
+#define D3			259.0
+#define D5			102.0
 //质量参数（mm，kg）
 #define GLODO		9.801
 
-#define M5			0.320
-#define M4			0.226
-#define M3			0.269
-#define M2			0.737
+// JY版本修改 #define M5			0.320
+#define M4			0.292
+#define M3			0.226
+#define M2			0.657
 //质心位置
-#define H5			56.49
-#define H4			5.460
-#define H3			73.70
-#define H2			72.72
+// JY版本修改 #define H5			56.49
+#define H4			56.49
+#define H3			5.46
+#define H2			89.0
 

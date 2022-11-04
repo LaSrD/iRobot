@@ -1,1 +1,3 @@
-﻿  IRobotTest.vcxproj -> D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotTest\x64\Debug\IRobotTest.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(IRobotTest.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+    正在创建库 D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotTest\x64\Debug\IRobot_BH_T_JY_Test.lib 和对象 D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotTest\x64\Debug\IRobot_BH_T_JY_Test.exp
+  IRobotTest.vcxproj -> D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotTest\x64\Debug\IRobot_BH_T_JY_Test.exe

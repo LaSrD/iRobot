@@ -2,10 +2,9 @@
 //
 
 #include <iostream>
-
 # include<ctime>
 #include <windows.h>
-#include"IRobot_DLL.h"
+#include"DllforIRobot_BH_T_JY.h"
 using namespace std;
 
 int main()
@@ -14,17 +13,23 @@ int main()
 	char str;
 	cin >> str;
 	if (str == 'o') {
-		string msg = test2.ConnectToHandle("COM11");  // 连接至手柄
+		string msg = test2.Connect();
 		if (!msg.empty())
-			cout << msg;
+			cout << msg << endl;
 	}
-	string info;
-	while (true)
+	ROBOT::iRobotInfo INFO = test2.GetInfo();
+	cout << INFO.Ctrl_Num << " "
+		<< INFO.Hw_type << " "
+		<< INFO.Procotol_type << " "
+		<< INFO.Serial_Num << endl;
+	ROBOT::ROBOTANGLE Test2angle;
+
+	while (test2.isConnect())
 	{
-		if (test2.isHandleConnect())
-			cout << (info = test2.GetHandleInfo());
-		if (info == "10000")
-			test2.CloseHandle();
+		Test2angle = test2.Angle();
+		//cout << Test2angle.BaseR << " " << Test2angle.UarmS << " "
+		//	<< Test2angle.LarmR << " " << Test2angle.WristS << " "
+		//	<< Test2angle.WristR << endl;
 	}
 }
 

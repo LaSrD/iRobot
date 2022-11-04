@@ -25,7 +25,7 @@ ROBOT::IROBOT::IROBOT():
 	is_close(true),
 	is_BaseLock(false),
 	is_UarmSLock(false),
-	is_LarmSLock(false),
+	 // is_LarmSLock(false),
 	is_LarmRLock(false),
 	is_WristSLock(false),
 	is_WristRLock(false),
@@ -76,7 +76,7 @@ ROBOT::iRobotInfo  ROBOT::IROBOT::GetInfo()
 	return this->m_info;
 }
 //
-//	g
+//	连接至设备
 //	返回: empty | 错误信息
 //
 std::string ROBOT::IROBOT::Connect()
@@ -95,7 +95,7 @@ std::string ROBOT::IROBOT::Connect()
 wchar_t *   ROBOT::IROBOT::Connect_forCsharrp()
 {
 	wchar_t * ptr = nullptr;
-	try {
+	try {	
 		this->m_serial->open();
 	}
 	catch (const std::exception & error) {
@@ -145,10 +145,10 @@ void ROBOT::IROBOT::UarmStoPosition(double _angle, int16_t _speed)
 {
 	base_toangle(_angle, _speed, *MotorUarmS);
 }
-void ROBOT::IROBOT::LarmStoPosition(double _angle,int16_t _speed)
-{
-	// base_toangle(_angle, _speed, *MotorLarmS); //Jy版本的没有小臂摆动电机，20221103改
-}
+//void ROBOT::IROBOT::LarmStoPosition(double _angle,int16_t _speed)
+//{
+//	// base_toangle(_angle, _speed, *MotorLarmS); //Jy版本的没有小臂摆动电机，20221103改
+//}
 void ROBOT::IROBOT::LarmRtoPosition(double _angle,int16_t _speed)
 {
 	base_toangle(_angle, _speed, *MotorLarmR);
@@ -169,26 +169,26 @@ void ROBOT::IROBOT::ToAbsoangle(double * _angle, int16_t speed )
 	// 关节角映射到电机转角。
 	// 20221013 待添加关节角映射到电机转角
 
-	BaseRtoPosition(_angle[5],speed);
-	UarmStoPosition(_angle[4], speed);
-	LarmStoPosition(_angle[3], speed);
+	BaseRtoPosition(_angle[4],speed);
+	UarmStoPosition(_angle[3], speed);
+	 // LarmStoPosition(_angle[3], speed);
 	LarmRtoPosition(_angle[2], speed);
 	WristStoPosition(_angle[1], speed);
 	WristRtoPosition(_angle[0], speed);
 }
 void ROBOT::IROBOT::ToAbsoangle(std::vector<double> _angle, int16_t speed)
 {
-	BaseRtoPosition(_angle[5], speed);
-	UarmStoPosition(_angle[4], speed);
-	LarmStoPosition(_angle[3], speed);
+	BaseRtoPosition(_angle[4], speed);
+	UarmStoPosition(_angle[3], speed);
+	 // LarmStoPosition(_angle[3], speed);
 	LarmRtoPosition(_angle[2], speed);
 	WristStoPosition(_angle[1], speed);
 	WristRtoPosition(_angle[0], speed);
 }
 void ROBOT::IROBOT::ToIncreangle(double * _angle, int16_t speed)
 {
-	base_increangle(_angle[5], speed, *MotorBaseR);
-	base_increangle(_angle[4], speed, *MotorUarmS);
+	base_increangle(_angle[4], speed, *MotorBaseR);
+	base_increangle(_angle[3], speed, *MotorUarmS);
 	// base_increangle(_angle[3], speed, *MotorLarmS);
 	base_increangle(_angle[2], speed, *MotorLarmR);
 	base_increangle(_angle[1], speed, *MotorWristS);
@@ -196,8 +196,8 @@ void ROBOT::IROBOT::ToIncreangle(double * _angle, int16_t speed)
 }
 void ROBOT::IROBOT::ToIncreangle(std::vector<double>_angle, int16_t speed)
 {
-	base_increangle(_angle[5], speed, *MotorBaseR);
-	base_increangle(_angle[4], speed, *MotorUarmS);
+	base_increangle(_angle[4], speed, *MotorBaseR);
+	base_increangle(_angle[3], speed, *MotorUarmS);
 	// base_increangle(_angle[3], speed, *MotorLarmS);
 	base_increangle(_angle[2], speed, *MotorLarmR);
 	base_increangle(_angle[1], speed, *MotorWristS);
@@ -209,23 +209,24 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 
 	double theta1 = this->m_angle.BaseR * PI / 180.0;
 	double theta2 = this->m_angle.UarmS * PI / 180.0;
-	double theta3 = this->m_angle.LarmS * PI / 180.0;
-	double theta4 = this->m_angle.LarmR * PI / 180.0;
-	double theta5 = this->m_angle.WristS * PI / 180.0;
-	double theta6 = this->m_angle.WristR * PI / 180.0;
+	double theta3 = this->m_angle.LarmR * PI / 180.0;
+	double theta4 = this->m_angle.WristS * PI / 180.0;
+	double theta5 = this->m_angle.WristR * PI / 180.0;
 
-	double c1 = std::cos(theta1), c2 = std::cos(theta2), c3 = std::cos(theta3), c4 = std::cos(theta4), c5 = std::cos(theta5), c6 = std::cos(theta6);
-	double s1 = std::sin(theta1), s2 = std::sin(theta2), s3 = std::sin(theta3), s4 = std::sin(theta4), s5 = std::sin(theta5), s6 = std::sin(theta6);
+	double c1 = std::cos(theta1), c2 = std::cos(theta2), c3 = std::cos(theta3), c4 = std::cos(theta4), c5 = std::cos(theta5);
+	double s1 = std::sin(theta1), s2 = std::sin(theta2), s3 = std::sin(theta3), s4 = std::sin(theta4), s5 = std::sin(theta5);
 
-	// 解算力矩
+	// 1104 更改
+
+	// 重力补偿输出力矩
 	double Torque_1 = 0;
 
-	double Torque_2 = -(A2*(c3*(GLODO*M3*(c2*c3 - s2 * s3) + GLODO * M4*(c2*c3 - s2 * s3) + c5 * GLODO*M5*(c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2)) + GLODO * M5*s5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2))) + s3 * (s4*(GLODO*M4*s4*(c2*s3 + c3 * s2) + GLODO * M5*s4*(c2*s3 + c3 * s2)) + c4 * (c4*GLODO*M4*(c2*s3 + c3 * s2) + c5 * GLODO*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - GLODO * M5*s5*(c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2))) + GLODO * M3*(c2*s3 + c3 * s2))) - s4 * (GLODO*H4*M4*s4*(c2*s3 + c3 * s2) - c5 * GLODO*H5*M5*s4*(c2*s3 + c3 * s2)) + c4 * (GLODO*H5*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - c4 * GLODO*H4*M4*(c2*s3 + c3 * s2)) + D4 * (s4*(GLODO*M4*s4*(c2*s3 + c3 * s2) + GLODO * M5*s4*(c2*s3 + c3 * s2)) + c4 * (c4*GLODO*M4*(c2*s3 + c3 * s2) + c5 * GLODO*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - GLODO * M5*s5*(c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2)))) + GLODO * H3*M3*(c2*s3 + c3 * s2) + c2 * GLODO*H2*M2);
+	double Torque_2 = -GLODO * (c2 * H2 * M2 + c3 * c3 * D3 *M3*s2 - c3 * c3 * H3*M3*s2 + D3 * M3*s2*s3*s3 + D3 * M4*s2*s3*s3 - H3 * M3*s2*s3*s3 + c3 * c3 * c4 * c4  * D3*M4*s2 + c3 * c3 * D3*M4*s2*s4 * s4 + c2 * c3*H4*M4*s4 + c3 * c3 * c4*H4*M4*s2 + c4 * H4 * M4 *s2*s3*s3);
 
-	double Torque_3 = -(c4*(GLODO*H5*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - c4 * GLODO * H4*M4*(c2*s3 + c3 * s2)) - s4 * (GLODO*H4*M4*s4*(c2*s3 + c3 * s2) - c5 * GLODO*H5*M5*s4*(c2*s3 + c3 * s2)) + D4 * (s4*(GLODO*M4*s4*(c2*s3 + c3 * s2) + GLODO * M5*s4*(c2*s3 + c3 * s2)) + c4 * (c4*GLODO*M4*(c2*s3 + c3 * s2) + c5 * GLODO*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - GLODO * M5*s5*(c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2)))) + GLODO * H3*M3*(c2*s3 + c3 * s2));
+	double Torque_3 = -GLODO * H4 * M4 * s2 * s3 * s4;
 
-	double Torque_4 = - GLODO * H5 * M5 * s4 * s5 *(c2 * s3 + c3 * s2);
-	double Torque_5 = -(c4 * GLODO * H5 * M5 *(s5 *(c2 * c3 - s2 * s3) + c4 * c5 *(c2*s3 + c3 * s2)));
+	double Torque_4 = - GLODO * H4 * M4 *(c2 * s4 + c3 * c4*s2);
+	double Torque_5 = 0.0;
 	
 	//以上不包含外力
 
@@ -235,60 +236,58 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	double mx_wcs = _force[3];
 	double my_wcs = _force[4];
 	double mz_wcs = _force[5];
-	double fx = fz_wcs * (c6*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - s4 * s6*(c2*s3 + c3 * s2)) - fy_wcs * (c6*(s5*(c2*s1*s3 + c3 * s1*s2) - c5 * (c1*s4 + c4 * (c2*c3*s1 - s1 * s2*s3))) - s6 * (c1*c4 - s4 * (c2*c3*s1 - s1 * s2*s3))) - fx_wcs * (c6*(s5*(c1*c2*s3 + c1 * c3*s2) + c5 * (s1*s4 - c4 * (c1*c2*c3 - c1 * s2*s3))) + s6 * (c4*s1 + s4 * (c1*c2*c3 - c1 * s2*s3)));
-	double fy = fx_wcs * (s6*(s5*(c1*c2*s3 + c1 * c3*s2) + c5 * (s1*s4 - c4 * (c1*c2*c3 - c1 * s2*s3))) - c6 * (c4*s1 + s4 * (c1*c2*c3 - c1 * s2*s3))) + fy_wcs * (s6*(s5*(c2*s1*s3 + c3 * s1*s2) - c5 * (c1*s4 + c4 * (c2*c3*s1 - s1 * s2*s3))) + c6 * (c1*c4 - s4 * (c2*c3*s1 - s1 * s2*s3))) - fz_wcs * (s6*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) + c6 * s4*(c2*s3 + c3 * s2));
-	double fz = fz_wcs * (c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2)) - fy_wcs * (c5*(c2*s1*s3 + c3 * s1*s2) + s5 * (c1*s4 + c4 * (c2*c3*s1 - s1 * s2*s3))) - fx_wcs * (c5*(c1*c2*s3 + c1 * c3*s2) - s5 * (s1*s4 - c4 * (c1*c2*c3 - c1 * s2*s3)));
+	double fx = fz_wcs * (c5*(c2*s4 + c3 * c4*s2) - s2 * s3*s5) - fx_wcs * (c5*(c4*(s1*s3 - c1 * c2*c3) + c1 * s2*s4) + s5 * (c3*s1 + c1 * c2*s3)) + fy_wcs * (c5*(c4*(c1*s3 + c2 * c3*s1) - s1 * s2*s4) + s5 * (c1*c3 - c2 * s1*s3)); 
+	double fy = fx_wcs * (s5*(c4*(s1*s3 - c1 * c2*c3) + c1 * s2*s4) - c5 * (c3*s1 + c1 * c2*s3)) - fz_wcs * (s5*(c2*s4 + c3 * c4*s2) + c5 * s2*s3) - fy_wcs * (s5*(c4*(c1*s3 + c2 * c3*s1) - s1 * s2*s4) - c5 * (c1*c3 - c2 * s1*s3));
+	double fz = fx_wcs * (s4*(s1*s3 - c1 * c2*c3) - c1 * c4*s2) - fy_wcs * (s4*(c1*s3 + c2 * c3*s1) + c4 * s1*s2) + fz_wcs * (c2*c4 - c3 * s2*s4);
 
-	double mx = 0;
-	double my = 0;
-	double mz = 0;
+	double mx = mz_wcs * (c5*(c2*s4 + c3 * c4*s2) - s2 * s3*s5) - mx_wcs * (c5*(c4*(s1*s3 - c1 * c2*c3) + c1 * s2*s4) + s5 * (c3*s1 + c1 * c2*s3)) + my_wcs * (c5*(c4*(c1*s3 + c2 * c3*s1) - s1 * s2*s4) + s5 * (c1*c3 - c2 * s1*s3));
+	double my = mx_wcs * (s5*(c4*(s1*s3 - c1 * c2*c3) + c1 * s2*s4) - c5 * (c3*s1 + c1 * c2*s3)) - mz_wcs * (s5*(c2*s4 + c3 * c4*s2) + c5 * s2*s3) - my_wcs * (s5*(c4*(c1*s3 + c2 * c3*s1) - s1 * s2*s4) - c5 * (c1*c3 - c2 * s1*s3));
+	double mz = mx_wcs * (s4*(s1*s3 - c1 * c2*c3) - c1 * c4*s2) - my_wcs * (s4*(c1*s3 + c2 * c3*s1) + c4 * s1*s2) + mz_wcs * (c2*c4 - c3 * s2*s4);
 
-	double Torque_6 = mz;
-	Torque_5 += c6 * my + mx * s6 - D6 * (c6*fx - fy * s6);
-	Torque_4 += c5 * mz + c6 * mx*s5 - my * s5*s6 + D6 * fx*s5*s6 + c6 * D6*fy*s5;
-	Torque_3 += c4 * c6*my + c4 * mx*s6 - mz * s4*s5 + c5 * c6*mx*s4 + D4 * fx*s4*s6 - c5 * my*s4*s6 - c4 * c6*D6*fx + c6 * D4*fy*s4 + c4 * D6*fy*s6 + c4 * D4*fz*s5 - c4 * c5*c6*D4*fx + c4 * c5*D4*fy*s6 + c5 * c6*D6*fy*s4 + c5 * D6*fx*s4*s6;
-	Torque_2 += c4 * c6*my + c4 * mx*s6 - mz * s4*s5 + c5 * c6*mx*s4 + D4 * fx*s4*s6 - c5 * my*s4*s6 - A2 * c3*c5*fz - c4 * c6*D6*fx + c6 * D4*fy*s4 + c4 * D6*fy*s6 + c4 * D4*fz*s5 - c4 * c5*c6*D4*fx - A2 * c3*c6*fx*s5 + c4 * c5*D4*fy*s6 + c5 * c6*D6*fy*s4 + A2 * c6*fy*s3*s4 + A2 * c3*fy*s5*s6 + A2 * c4*fz*s3*s5 + c5 * D6*fx*s4*s6 + A2 * fx*s3*s4*s6 - A2 * c4*c5*c6*fx*s3 + A2 * c4*c5*fy*s3*s6;
+	Torque_5 += mz;
+	Torque_4 += c5 * my + mx * s5 - D5 * (c5*fx - fy * s5);
+	Torque_3 += c4 * mz + c5 * mx*s4 - my * s4*s5 + D5 * fx*s4*s5 + c5 * D5*fy*s4;
+	Torque_2 += c3 * c5*my + c3 * mx*s5 - mz * s3*s4 + c4 * c5*mx*s3 + D3 * fx*s3*s5 - c4 * my*s3*s5 - c3 * c5*D5*fx + c5 * D3*fy*s3 + c3 * D5*fy*s5 + c3 * D3*fz*s4 - c3 * c4*c5*D3*fx + c3 * c4*D3*fy*s5 + c4 * c5*D5*fy*s3 + c4 * D5*fx*s3*s5;
 
-	Torque_1 += c2 * c3*c5*mz - c5 * mz*s2*s3 + A2 * c2*c4*c6*fy + A2 * c2*c4*fx*s6 + c2 * c3*c6*mx*s5 - A2 * c2*fz*s4*s5 - c2 * c6*my*s3*s4 - c3 * c6*my*s2*s4 - c2 * c3*my*s5*s6 - c2 * c4*mz*s3*s5 - c3 * c4*mz*s2*s5 - c2 * mx*s3*s4*s6 - c3 * mx*s2*s4*s6 - c6 * mx*s2*s3*s5 + my * s2*s3*s5*s6 + A2 * c2*c5*c6*fx*s4 + c2 * c4*c6*D4*fy*s3 + c3 * c4*c6*D4*fy*s2 + c2 * c3*c6*D6*fy*s5 + c2 * c4*c5*c6*mx*s3 + c3 * c4*c5*c6*mx*s2 - A2 * c2*c5*fy*s4*s6 + c2 * c4*D4*fx*s3*s6 + c3 * c4*D4*fx*s2*s6 + c2 * c6*D6*fx*s3*s4 + c3 * c6*D6*fx*s2*s4 + c2 * c3*D6*fx*s5*s6 - c2 * c4*c5*my*s3*s6 - c3 * c4*c5*my*s2*s6 - c2 * D6*fy*s3*s4*s6 - c3 * D6*fy*s2*s4*s6 - c6 * D6*fy*s2*s3*s5 - c2 * D4*fz*s3*s4*s5 - c3 * D4*fz*s2*s4*s5 - D6 * fx*s2*s3*s5*s6 + c2 * c4*c5*c6*D6*fy*s3 + c3 * c4*c5*c6*D6*fy*s2 + c2 * c5*c6*D4*fx*s3*s4 + c3 * c5*c6*D4*fx*s2*s4 + c2 * c4*c5*D6*fx*s3*s6 + c3 * c4*c5*D6*fx*s2*s6 - c2 * c5*D4*fy*s3*s4*s6 - c3 * c5*D4*fy*s2*s4*s6;
+	Torque_1 += c5 * my*s2*s3 - c2 * c5*mx*s4 - c2 * c4*mz + c2 * my*s4*s5 + c3 * mz*s2*s4 + mx * s2*s3*s5 - c3 * c5*D3*fy*s2 - c2 * c5*D5*fy*s4 - c3 * c4*c5*mx*s2 - c3 * D3*fx*s2*s5 - c5 * D5*fx*s2*s3 - c2 * D5*fx*s4*s5 + c3 * c4*my*s2*s5 + D5 * fy*s2*s3*s5 + D3 * fz*s2*s3*s4 - c3 * c4*c5*D5*fy*s2 - c4 * c5*D3*fx*s2*s3 - c3 * c4*D5*fx*s2*s5 + c4 * D3*fy*s2*s3*s5;
 
 #ifdef DEBUG
 	std::cout << Torque_1 * 20 << "\t"
 		<< Torque_2 * (20 / 3) << "\t"
 		<< Torque_3 * 20 << "\t"
 		<< Torque_4 * 62 << "\t"
-		<< Torque_5 * 62 << "\t"
-		<< Torque_6 * 62 << "\n";
-#endif // DEBUG
+		<< Torque_5 * 62 << "\n";
+#endif // debug
 
-	if (!this->is_BaseLock)
-		this->MotorBaseR->TorqueControl(*m_serial, Torque_1);
-	else
-		this->MotorBaseR->IncreControl(*m_serial, 0, 10);
+	//if (!this->is_BaseLock)
+	//	this->MotorBaseR->TorqueControl(*m_serial, Torque_1);
+	//else
+	//	this->MotorBaseR->IncreControl(*m_serial, 0, 10);
 
-	if(!this->is_UarmSLock)
-		this->MotorUarmS->TorqueControl(*m_serial,Torque_2 / UPARMRATIO);
-	else
-		this->MotorUarmS->IncreControl(*m_serial, 0, 10);
+	//if(!this->is_UarmSLock)
+	//	this->MotorUarmS->TorqueControl(*m_serial, Torque_2 / UPARMRATIO);
+	//else
+	//	this->MotorUarmS->IncreControl(*m_serial, 0, 10);
 
-	//if(!this->is_LarmSLock)
+	///*if(!this->is_LarmSLock)
 	//	this->MotorLarmS->TorqueControl(*m_serial, Torque_3);
 	//else
-	//	this->MotorLarmS->IncreControl(*m_serial, 0, 10); //Jy版本的没有小臂摆动电机，20221103改
-	 
-	if(!this->is_LarmRLock)
-		this->MotorLarmR->TorqueControl(*m_serial, Torque_4);
-	else
-		this->MotorLarmR->IncreControl(*m_serial, 0, 10);
+	//	this->motorlarms->IncreControl(*m_serial, 0, 10);*/ //jy版本的没有小臂摆动电机，20221103改
+	// 
+	//if(!this->is_LarmRLock)
+	//	this->MotorLarmR->TorqueControl(*m_serial, Torque_3);
+	//else
+	//	this->MotorLarmR->IncreControl(*m_serial, 0, 10);
 
-	if(!this->is_WristSLock)
-		this->MotorWristS->TorqueControl(*m_serial, Torque_5);
-	else
-		this->MotorWristS->IncreControl(*m_serial, 0, 10);
+	//if(!this->is_WristSLock)
+	//	this->MotorWristS->TorqueControl(*m_serial, Torque_4);
+	//else
+	//	this->MotorWristS->IncreControl(*m_serial, 0, 10);
 
-	if (!this->is_WristRLock)
-		this->MotorWristR->TorqueControl(*m_serial, Torque_6);
-	else
-		this->MotorWristR->IncreControl(*m_serial, 0, 10);
+	//if (!this->is_WristRLock)
+	//	this->MotorWristR->TorqueControl(*m_serial, Torque_5);
+	//else
+	//	this->MotorWristR->IncreControl(*m_serial, 0, 10);
 }
 void ROBOT::IROBOT::OutputForce(double _fx, double _fy, double _fz, double _mx, double _my, double _mz)
 {
@@ -306,7 +305,7 @@ void ROBOT::IROBOT::BackToOrigin()
 		return;
 	BaseRtoPosition(0, BACKSPEED);
 	UarmStoPosition(0, BACKSPEED);
-	LarmStoPosition(0, BACKSPEED);
+	 // LarmStoPosition(0, BACKSPEED);
 	LarmRtoPosition(0, BACKSPEED);
 	WristStoPosition(0, BACKSPEED);
 	WristRtoPosition(0, BACKSPEED);
@@ -370,7 +369,7 @@ void ROBOT::IROBOT::GetAngle()
 		return;
 
 	this->m_angle.BaseR = MotorBaseR->angle(*m_serial);
-	this->m_angle.UarmS = - 90.0 + ((0 - MotorUarmS->angle(*m_serial)) / UPARMRATIO);
+	this->m_angle.UarmS = ((0 - MotorUarmS->angle(*m_serial)) / UPARMRATIO);
  	 // this->m_angle.LarmS = 90.0 - MotorLarmS->angle(*m_serial);
 	this->m_angle.LarmR = MotorLarmR->angle(*m_serial);
 	this->m_angle.WristS = - MotorWristS->angle(*m_serial);
@@ -381,17 +380,19 @@ void ROBOT::IROBOT::GetPosition()
 	this->Angle();
 	double theta1 = this->m_angle.BaseR * PI / 180.0;
 	double theta2 = this->m_angle.UarmS * PI / 180.0;
-	double theta3 = this->m_angle.LarmS * PI / 180.0;
-	double theta4 = this->m_angle.LarmR * PI / 180.0;
-	double theta5 = this->m_angle.WristS * PI / 180.0;
-	double theta6 = this->m_angle.WristR * PI / 180.0;
+	// 20221104 修改
+	double theta3 = this->m_angle.LarmR * PI / 180.0;
+	double theta4 = this->m_angle.WristS * PI / 180.0;
+	double theta5 = this->m_angle.WristR * PI / 180.0;
 
-	double c1 = std::cos(theta1), c2 = std::cos(theta2), c3 = std::cos(theta3), c4 = std::cos(theta4), c5 = std::cos(theta5), c6 = std::cos(theta6);
-	double s1 = std::sin(theta1), s2 = std::sin(theta2), s3 = std::sin(theta3), s4 = std::sin(theta4), s5 = std::sin(theta5), s6 = std::sin(theta6);
+	double c1 = std::cos(theta1), c2 = std::cos(theta2), c3 = std::cos(theta3), c4 = std::cos(theta4), c5 = std::cos(theta5);
+	double s1 = std::sin(theta1), s2 = std::sin(theta2), s3 = std::sin(theta3), s4 = std::sin(theta4), s5 = std::sin(theta5);
 
-	this->m_endpose.px = D6 * (c5*(c1*c2*s3 + c1 * c3*s2) - s5 * (s1*s4 - c4 * (c1*c2*c3 - c1 * s2*s3))) + D4 * (c1*c2*s3 + c1 * c3*s2) + A2 * c1*c2;
-	this->m_endpose.py = A2 * c2*s1 + D4 * (c2*s1*s3 + c3 * s1*s2) + D6 * (c5*(c2*s1*s3 + c3 * s1*s2) + s5 * (c1*s4 + c4 * (c2*c3*s1 - s1 * s2*s3)));
-	this->m_endpose.pz = A2 * s2 - D4 * (c2*c3 - s2 * s3) - D6 * (c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2));
+
+	// 1104 更改
+	this->m_endpose.px = c1 * D3*s2 - D5 * (s4*(s1*s3 - c1 * c2*c3) - c1 * c4*s2);
+	this->m_endpose.py = D5 * (s4*(c1*s3 + c2 * c3*s1) + c4 * s1*s2) + D3 * s1*s2;
+	this->m_endpose.pz = -c2 * D3 - D5 * (c2*c4 - c3 * s2*s4);
 
 }
 ROBOT::STATE ROBOT::IROBOT::GetState(HTMotor & _motor)

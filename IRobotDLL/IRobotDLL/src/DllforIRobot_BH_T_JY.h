@@ -47,14 +47,14 @@ namespace ROBOT {
 		ROBOTANGLE() :
 			BaseR(0),
 			UarmS(0),
-			LarmS(0),
+			 // LarmS(0),
 			LarmR(0),
 			WristS(0),
 			WristR(0)
 		{}
 		double	BaseR;
 		double	UarmS;
-		double	LarmS;
+		// double	LarmS;
 		double	LarmR;
 		double	WristS;
 		double	WristR;
@@ -90,20 +90,20 @@ namespace ROBOT {
 		//单关节锁定\\解锁
 		inline void LockBaseR() { this->is_BaseLock = true;  }
 		inline void LockUarmS() { this->is_UarmSLock = true; }
-		inline void LockLarmS() { this->is_LarmSLock = true; }
+		//	inline void LockLarmS() { this->is_LarmSLock = true; }
 		inline void LockLarmR() { this->is_LarmRLock = true; }
 		inline void LockWristR(){ this->is_WristRLock = true;}
 		inline void LockWristS(){ this->is_WristSLock = true;}
 		inline void UnLockBaseR() { this->is_BaseLock = false; }
 		inline void UnLockUarmS() { this->is_UarmSLock = false; }
-		inline void UnLockLarmS() { this->is_LarmSLock = false; }
+		// inline void UnLockLarmS() { this->is_LarmSLock = false; }
 		inline void UnLockLarmR() { this->is_LarmRLock = false; }
 		inline void UnLockWristR() { this->is_WristRLock = false; }
 		inline void UnLockWristS() { this->is_WristSLock = false; }
 		inline void Lock() {
 			is_BaseLock = true;
 			is_UarmSLock = true;
-			is_LarmSLock = true;
+		 //	is_LarmSLock = true;
 			is_LarmRLock = true;
 			is_WristRLock = true;
 			is_WristSLock = true;
@@ -111,7 +111,7 @@ namespace ROBOT {
 		inline void UnLock() {
 			is_BaseLock = false;
 			is_UarmSLock = false;
-			is_LarmSLock = false;
+		//	is_LarmSLock = false;
 			is_LarmRLock = false;
 			is_WristRLock = false;
 			is_WristSLock = false;
@@ -120,7 +120,7 @@ namespace ROBOT {
 		// 20221013 : 添加角度限制（）
 		void BaseRtoPosition(double, int16_t speed = 0);
 		void UarmStoPosition(double, int16_t speed = 0);
-		void LarmStoPosition(double, int16_t speed = 0);
+		// void LarmStoPosition(double, int16_t speed = 0);
 		void LarmRtoPosition(double, int16_t speed = 0);
 		void WristStoPosition(double, int16_t speed = 0);
 		void WristRtoPosition(double, int16_t speed = 0);
@@ -176,7 +176,7 @@ namespace ROBOT {
 		//关节锁定状态
 		bool is_BaseLock;
 		bool is_UarmSLock;
-		bool is_LarmSLock;
+		// bool is_LarmSLock;
 		bool is_LarmRLock;
 		bool is_WristSLock;
 		bool is_WristRLock;
