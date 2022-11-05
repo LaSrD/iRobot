@@ -23,10 +23,10 @@ int main()
 	while (true)
 	{
 		//angle = test2.Angle();
-		//pos = test2.Pose();
-		/*cout << angle.BaseR << " " << angle.UarmS << " "
-			<< angle.LarmS << " " << angle.LarmR << " "
-			<< angle.WristS << " " << angle.WristR << endl;*/
+		////pos = test2.Pose();
+		//cout << angle.BaseR << " " << angle.UarmS << " "
+		//	<< angle.LarmS << " " << angle.LarmR << " "
+		//	<< angle.WristS << " " << angle.WristR << endl;
 		//cout << pos.px << " " << pos.py << " " << pos.pz << endl;
 		test2.OutputForce();
 	}

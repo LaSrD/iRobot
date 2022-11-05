@@ -374,7 +374,7 @@ void ROBOT::IROBOT::GetAngle()
 	this->m_angle.UarmS = - 90.0 + ((0 - MotorUarmS->angle(*m_serial)) / UPARMRATIO);
 	this->m_angle.LarmS = 90.0 - (MotorLarmS->angle(*m_serial) / LOWARMRATIO);       // 20221105 _
 	this->m_angle.LarmR = MotorLarmR->angle(*m_serial);
-	this->m_angle.WristS = - MotorWristS->angle(*m_serial);
+	this->m_angle.WristS = MotorWristS->angle(*m_serial); 
 	this->m_angle.WristR = MotorWristR->angle(*m_serial);
 }
 void ROBOT::IROBOT::GetPosition()
