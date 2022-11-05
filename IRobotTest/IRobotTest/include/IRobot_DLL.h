@@ -139,8 +139,10 @@ namespace ROBOT {
 
 		// °´¼ü´úÂë
 		std::string ConnectToHandle(std::string _portname);
+		wchar_t * ConnectToHandle(const wchar_t * _portname);
 		bool isHandleConnect();
 		std::string GetHandleInfo();
+		wchar_t * GetHandleInfo(int i);
 		void CloseHandle();
 		
 #pragma endregion

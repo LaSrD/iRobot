@@ -1,19 +1,19 @@
 #pragma once
 /************************************************************************
 *                                                                       *
-*   iRobotBase.h --													    *
+*   iRobotBase.h -- 20221105 _ 同构减速版本 修改D-H参数				    *
 *                                                                       * 
 ************************************************************************/
 
 //设备信息
-#define SERIALNUM	"iRobot_v0.1"		// 系列号
+#define SERIALNUM	"iRobot_BH_T_8G_v0.1"		// 系列号
 #define PROCOTOL	"RS485-115200"		//	通讯协议
 #define HWTYPE		"HT-DMR-4015/6315"	// 硬件类型
 #define CTRLNUM		"beta-iRobotdll_v0.1"//驱动版本
 
 #define PI 3.141592654
 //
-// 电机ID
+// 电机ID: 
 //
 #define ID_BASER	(uint8_t)0x06
 #define ID_UARMS	(uint8_t)0x05
@@ -27,21 +27,22 @@
 //
 #define	SAMELIMIT	0.4	
 //大臂减速比
-#define UPARMRATIO	3.0
+#define UPARMRATIO	5.0
+#define LOWARMRATIO	5.0
 //运动学参数
-#define A2			128.0
-#define D4			147.72
+#define A2			137.21     
+#define D4			144.8
 #define D6			102.0
 //质量参数（mm，kg）
 #define GLODO		9.801
 
-#define M5			0.320
-#define M4			0.226
-#define M3			0.269
-#define M2			0.737
+#define M5			0.305
+#define M4			0.255
+#define M3			0.270
+#define M2			1.053
 //质心位置
-#define H5			56.49
-#define H4			5.460
-#define H3			73.70
-#define H2			72.72
+#define H5			99.32
+#define H4			7.20
+#define H3			59.57
+#define H2			110.07
 

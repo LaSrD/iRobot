@@ -225,7 +225,7 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	double Torque_3 = -(c4*(GLODO*H5*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - c4 * GLODO * H4*M4*(c2*s3 + c3 * s2)) - s4 * (GLODO*H4*M4*s4*(c2*s3 + c3 * s2) - c5 * GLODO*H5*M5*s4*(c2*s3 + c3 * s2)) + D4 * (s4*(GLODO*M4*s4*(c2*s3 + c3 * s2) + GLODO * M5*s4*(c2*s3 + c3 * s2)) + c4 * (c4*GLODO*M4*(c2*s3 + c3 * s2) + c5 * GLODO*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - GLODO * M5*s5*(c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2)))) + GLODO * H3*M3*(c2*s3 + c3 * s2));
 
 	double Torque_4 = - GLODO * H5 * M5 * s4 * s5 *(c2 * s3 + c3 * s2);
-	double Torque_5 = -(c4 * GLODO * H5 * M5 *(s5 *(c2 * c3 - s2 * s3) + c4 * c5 *(c2*s3 + c3 * s2)));
+	double Torque_5 = (c4 * GLODO * H5 * M5 *(s5 *(c2 * c3 - s2 * s3) + c4 * c5 *(c2*s3 + c3 * s2)));
 	
 	//以上不包含外力
 
@@ -242,7 +242,8 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	double mx = 0;
 	double my = 0;
 	double mz = 0;
-
+	//
+	 // 20221105待修改// 
 	double Torque_6 = mz;
 	Torque_5 += c6 * my + mx * s6 - D6 * (c6*fx - fy * s6);
 	Torque_4 += c5 * mz + c6 * mx*s5 - my * s5*s6 + D6 * fx*s5*s6 + c6 * D6*fy*s5;
@@ -253,8 +254,8 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 
 #ifdef DEBUG
 	std::cout << Torque_1 * 20 << "\t"
-		<< Torque_2 * (20 / 3) << "\t"
-		<< Torque_3 * 20 << "\t"
+		<< Torque_2 * (20 / UPARMRATIO) << "\t"
+		<< Torque_3 * (20 / LOWARMRATIO) << "\t"
 		<< Torque_4 * 62 << "\t"
 		<< Torque_5 * 62 << "\t"
 		<< Torque_6 * 62 << "\n";
@@ -271,7 +272,7 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 		this->MotorUarmS->IncreControl(*m_serial, 0, 10);
 
 	if(!this->is_LarmSLock)
-		this->MotorLarmS->TorqueControl(*m_serial, Torque_3);
+		this->MotorLarmS->TorqueControl(*m_serial, Torque_3 / LOWARMRATIO);
 	else
 		this->MotorLarmS->IncreControl(*m_serial, 0, 10);
 
@@ -371,7 +372,7 @@ void ROBOT::IROBOT::GetAngle()
 
 	this->m_angle.BaseR = MotorBaseR->angle(*m_serial);
 	this->m_angle.UarmS = - 90.0 + ((0 - MotorUarmS->angle(*m_serial)) / UPARMRATIO);
-	this->m_angle.LarmS = 90.0 - MotorLarmS->angle(*m_serial);
+	this->m_angle.LarmS = 90.0 - (MotorLarmS->angle(*m_serial) / LOWARMRATIO);       // 20221105 _
 	this->m_angle.LarmR = MotorLarmR->angle(*m_serial);
 	this->m_angle.WristS = - MotorWristS->angle(*m_serial);
 	this->m_angle.WristR = MotorWristR->angle(*m_serial);

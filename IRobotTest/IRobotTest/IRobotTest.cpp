@@ -10,21 +10,25 @@ using namespace std;
 
 int main()
 {
-	ROBOT::IROBOT test2("COM6");
+	ROBOT::IROBOT test2("COM13");
 	char str;
 	cin >> str;
 	if (str == 'o') {
-		string msg = test2.ConnectToHandle("COM11");  // 连接至手柄
-		if (!msg.empty())
+		string msg = test2.Connect();
+		if(!msg.empty())
 			cout << msg;
 	}
-	string info;
+	ROBOT::ROBOTANGLE angle;
+	ROBOT::ENDPOSITION pos;
 	while (true)
 	{
-		if (test2.isHandleConnect())
-			cout << (info = test2.GetHandleInfo());
-		if (info == "10000")
-			test2.CloseHandle();
+		//angle = test2.Angle();
+		//pos = test2.Pose();
+		/*cout << angle.BaseR << " " << angle.UarmS << " "
+			<< angle.LarmS << " " << angle.LarmR << " "
+			<< angle.WristS << " " << angle.WristR << endl;*/
+		//cout << pos.px << " " << pos.py << " " << pos.pz << endl;
+		test2.OutputForce();
 	}
 }
 
