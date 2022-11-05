@@ -225,7 +225,10 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 	double Torque_3 = -(c4*(GLODO*H5*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - c4 * GLODO * H4*M4*(c2*s3 + c3 * s2)) - s4 * (GLODO*H4*M4*s4*(c2*s3 + c3 * s2) - c5 * GLODO*H5*M5*s4*(c2*s3 + c3 * s2)) + D4 * (s4*(GLODO*M4*s4*(c2*s3 + c3 * s2) + GLODO * M5*s4*(c2*s3 + c3 * s2)) + c4 * (c4*GLODO*M4*(c2*s3 + c3 * s2) + c5 * GLODO*M5*(s5*(c2*c3 - s2 * s3) + c4 * c5*(c2*s3 + c3 * s2)) - GLODO * M5*s5*(c5*(c2*c3 - s2 * s3) - c4 * s5*(c2*s3 + c3 * s2)))) + GLODO * H3*M3*(c2*s3 + c3 * s2));
 
 	double Torque_4 = - GLODO * H5 * M5 * s4 * s5 *(c2 * s3 + c3 * s2);
-	double Torque_5 = (c4 * GLODO * H5 * M5 *(s5 *(c2 * c3 - s2 * s3) + c4 * c5 *(c2*s3 + c3 * s2)));
+	if (abs(Torque_4) < 12.5f)
+		Torque_4 = 0;
+	double Torque_5 = H5 * M5*(GLODO*s5*(c2*c3 - s2 * s3) + c4 * c5*GLODO*(c2*s3 + c3 * s2));
+	
 	
 	//以上不包含外力
 
@@ -277,12 +280,12 @@ void ROBOT::IROBOT::OutputForce(double * _force)
 		this->MotorLarmS->IncreControl(*m_serial, 0, 10);
 
 	if(!this->is_LarmRLock)
-		this->MotorLarmR->TorqueControl(*m_serial, Torque_4);
+		this->MotorLarmR->TorqueControl(*m_serial, Torque_4  * 0.75);
 	else
 		this->MotorLarmR->IncreControl(*m_serial, 0, 10);
 
 	if(!this->is_WristSLock)
-		this->MotorWristS->TorqueControl(*m_serial, Torque_5);
+		this->MotorWristS->TorqueControl(*m_serial, Torque_5 * 0.75);
 	else
 		this->MotorWristS->IncreControl(*m_serial, 0, 10);
 

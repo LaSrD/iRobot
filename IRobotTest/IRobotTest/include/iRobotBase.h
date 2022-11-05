@@ -39,7 +39,7 @@
 #define M5			0.305
 #define M4			0.255
 #define M3			0.270
-#define M2			1.053
+#define M2			1.353
 //ÖÊĞÄÎ»ÖÃ
 #define H5			99.32
 #define H4			7.20

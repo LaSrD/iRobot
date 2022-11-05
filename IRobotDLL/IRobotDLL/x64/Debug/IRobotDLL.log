@@ -39,14 +39,14 @@ d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.
           [
               _Ty=ROBOT::STATE
           ]
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(265): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(270): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(275): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(280): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(285): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(290): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(442): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(444): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(268): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(273): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(278): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(283): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(288): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(293): warning C4244: “参数”: 从“double”转换到“int16_t”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(445): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\study\vs工程\source\repos\irobot\irobot\irobotdll\irobotdll\src\irobot_dll.cpp(447): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
   正在生成代码...
     正在创建库 D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\x64\Debug\iRobot_BH_T_8G_DLL.lib 和对象 D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\x64\Debug\iRobot_BH_T_8G_DLL.exp
 serial.lib(win.obj) : warning LNK4099: 未找到 PDB“serial.pdb”(使用“serial.lib(win.obj)”或在“D:\Study\VS工程\source\repos\iRobot\iRobot\IRobotDLL\x64\Debug\serial.pdb”中寻找)；正在链接对象，如同没有调试信息一样

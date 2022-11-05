@@ -8,8 +8,10 @@
 #include"IRobot_DLL.h"
 using namespace std;
 
-int main()
-{
+
+
+int main(){
+
 	ROBOT::IROBOT test2("COM13");
 	char str;
 	cin >> str;
@@ -27,7 +29,7 @@ int main()
 		//cout << angle.BaseR << " " << angle.UarmS << " "
 		//	<< angle.LarmS << " " << angle.LarmR << " "
 		//	<< angle.WristS << " " << angle.WristR << endl;
-		//cout << pos.px << " " << pos.py << " " << pos.pz << endl;
+		//////cout << pos.px << " " << pos.py << " " << pos.pz << endl;
 		test2.OutputForce();
 	}
 }
