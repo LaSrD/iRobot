@@ -13,7 +13,7 @@
 
 #define PI 3.141592654
 //
-// 电机ID
+// 电机ID: hahahahhahaa
 //
 #define ID_BASER	(uint8_t)0x06
 #define ID_UARMS	(uint8_t)0x05
